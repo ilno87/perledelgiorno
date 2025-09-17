@@ -1,49 +1,403 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden; /* mai scroll */
-}
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perla del Giorno</title>
+  <style>
+    :root{
+      --bg:#0b1020; --card:#141a32; --text:#f5f7ff; --muted:#dfe5ff; --line:#2b3363;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    html, body { 
+      height: 100%; 
+      margin: 0; 
+      padding: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+      overflow: hidden; /* Previene scroll */
+    }
+    
+    .wrap { 
+      height: 100vh; 
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg); 
+      color: var(--text);
+      padding: clamp(0.5rem, 2vw, 1.5rem);
+    }
+    
+    .card { 
+      width: 100%;
+      height: 100%;
+      max-width: min(900px, 100vw);
+      max-height: 100vh;
+      background: var(--card); 
+      border-radius: clamp(8px, 2vw, 18px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      padding: clamp(1rem, 3vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    h1 { 
+      margin: 0 0 0.5rem; 
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      font-weight: 700; 
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+    
+    .meta { 
+      opacity: 0.7; 
+      font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+      margin-bottom: 0.5rem;
+      flex-shrink: 0;
+    }
+    
+    .content-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+    
+    p#phrase { 
+      font-size: clamp(1rem, 3.5vw, 1.4rem);
+      line-height: 1.4; 
+      margin: 0;
+      white-space: pre-wrap;
+      flex-shrink: 0;
+      word-wrap: break-word;
+      hyphens: auto;
+    }
+    
+    figure { 
+      margin: clamp(0.5rem, 2vw, 1rem) 0 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    
+    .imgbox { 
+      position: relative; 
+      background: #0e1430; 
+      border: 1px solid var(--line); 
+      border-radius: clamp(8px, 2vw, 14px);
+      overflow: hidden; 
+      box-shadow: 0 8px 22px rgba(0,0,0,.35);
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+    }
+    
+    .imgbox img { 
+      display: block; 
+      max-width: 100%; 
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    
+    figcaption { 
+      font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+      opacity: 0.85; 
+      margin-top: 0.5rem;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    
+    .footer { 
+      margin-top: clamp(0.5rem, 2vw, 1rem);
+      display: flex; 
+      gap: clamp(4px, 1.5vw, 8px);
+      flex-wrap: wrap;
+      flex-shrink: 0;
+      justify-content: center;
+    }
+    
+    button, a.btn { 
+      background: #1f2647; 
+      color: var(--muted); 
+      border: 1px solid var(--line); 
+      padding: clamp(4px, 1.5vw, 8px) clamp(6px, 2vw, 12px);
+      border-radius: clamp(6px, 1.5vw, 12px);
+      cursor: pointer; 
+      font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: filter 0.2s ease;
+    }
+    
+    button:hover, a.btn:hover { 
+      filter: brightness(1.08); 
+    }
+    
+    .hidden { 
+      display: none !important; 
+    }
+    
+    .error { 
+      background: #2a1330; 
+      border: 1px solid #7b2a3c; 
+      color: #ffd6de; 
+      padding: clamp(8px, 2vw, 10px) clamp(8px, 2vw, 12px);
+      border-radius: clamp(6px, 1.5vw, 12px);
+      margin-top: 0.5rem;
+      font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+      flex-shrink: 0;
+    }
 
-.wrap {
-  display: grid;
-  grid-template-rows: auto 1fr auto; /* header - immagine - footer */
-  height: 100vh;
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 16px;
-  box-sizing: border-box;
-}
+    /* Ottimizzazioni specifiche per mobile */
+    @media (max-height: 600px) {
+      .card {
+        padding: clamp(0.5rem, 2vw, 1rem);
+      }
+      
+      h1 {
+        font-size: clamp(1rem, 3.5vw, 1.4rem);
+        margin-bottom: 0.25rem;
+      }
+      
+      .meta {
+        margin-bottom: 0.25rem;
+      }
+      
+      p#phrase {
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        line-height: 1.3;
+      }
+      
+      figure {
+        margin-top: 0.5rem;
+      }
+      
+      .footer {
+        margin-top: 0.5rem;
+      }
+    }
 
-header {
-  text-align: left;
-}
+    /* Ottimizzazioni per schermi molto larghi */
+    @media (min-width: 1200px) {
+      .card {
+        max-width: 1000px;
+      }
+    }
 
-#phrase {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  line-height: 1.5;
-  margin-top: 8px;
-  white-space: pre-wrap;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
+    /* Modalità landscape su mobile */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .wrap {
+        padding: 0.25rem;
+      }
+      
+      .card {
+        padding: 0.75rem;
+        border-radius: 8px;
+      }
+      
+      h1 {
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
+      }
+      
+      p#phrase {
+        font-size: 1rem;
+        line-height: 1.25;
+      }
+      
+      .footer {
+        margin-top: 0.5rem;
+        gap: 4px;
+      }
+      
+      button, a.btn {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Perla del giorno 💎</h1>
+      <div class="meta" id="date"></div>
+      
+      <div class="content-area">
+        <p id="phrase">Caricamento…</p>
+        
+        <figure id="figure" class="hidden">
+          <div class="imgbox">
+            <img id="img" alt="" />
+          </div>
+          <figcaption id="caption"></figcaption>
+        </figure>
+        
+        <div id="error" class="error hidden"></div>
+      </div>
+      
+      <div class="footer">
+        <button id="prev" title="Giorno precedente">◀︎</button>
+        <button id="next" title="Giorno successivo">▶︎</button>
+        <button id="copy">Copia testo</button>
+        <a id="openImg" class="btn hidden" href="#" target="_blank">Apri immagine</a>
+      </div>
+    </div>
+  </div>
 
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+  <script>
+  // === CONFIG ===
+  const MODE = 'shuffle';       // 'shuffle' per mostrare elementi in ordine casuale senza ripetizioni (persistente con localStorage)
+  const TIMEZONE = 'Europe/Rome';
+  const SEED = 'perle-v3';     // cambia per rimescolare l'ordine in modalità 'daily'
 
-main img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 14px;
-}
+  // Carica l'elenco da file esterno JSON (nella root del sito)
+  async function loadItems(){
+    const res = await fetch('items.json', { cache: 'no-cache' });
+    if(!res.ok) throw new Error('Impossibile caricare items.json: '+res.status);
+    const data = await res.json();
+    if(!Array.isArray(data)) throw new Error('items.json non è un array');
+    return data;
+  }
 
-footer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-}
+  // === UTIL PER DAILY ===
+  function xmur3(str){ let h=1779033703^str.length; for(let i=0;i<str.length;i++){ h=Math.imul(h^str.charCodeAt(i),3432918353); h=h<<13|h>>>19; } return function(){ h=Math.imul(h^(h>>>16),2246822507); h=Math.imul(h^(h>>>13),3266489909); return (h^(h>>>16))>>>0; } }
+  function hashString(str){ const seedFn = xmur3(str); return seedFn(); }
+  function mulberry32(a){ return function(){ let t=a+=0x6D2B79F5; t=Math.imul(t^(t>>>15),1|t); t^=t+Math.imul(t^(t>>>7),61|t); return ((t^(t>>>14))>>>0)/4294967296; } }
+  function seededShuffle(arr, seedStr){ const seed = xmur3(seedStr)(); const rand = mulberry32(seed); const a = arr.slice(); for (let i=a.length-1; i>0; i--){ const j = Math.floor(rand()*(i+1)); [a[i], a[j]]=[a[j], a[i]]; } return a; }
+  function nowInTZ(tz){ return new Date(new Date().toLocaleString('en-GB', { timeZone: tz })); }
+  function startOfDayTZ(d, tz){ const p=new Intl.DateTimeFormat('en-CA',{ timeZone: tz, year:'numeric', month:'2-digit', day:'2-digit'}).formatToParts(d); const y=+p.find(q=>q.type==='year').value; const m=+p.find(q=>q.type==='month').value; const day=+p.find(q=>q.type==='day').value; return new Date(Date.UTC(y, m-1, day)); }
+  function daysSinceEpochTZ(d, tz){ const sod=startOfDayTZ(d, tz); return Math.floor(sod.getTime()/86400000); }
+
+  // Stato
+  let ITEMS = [];
+  let ITEMS_HASH = 0;
+  let offsetDays = 0; // usato solo in daily per sfogliare
+
+  function pickDailyItem(items, viewDate){
+    const perm = seededShuffle(items.map((_,i)=>i), SEED);
+    const idx = daysSinceEpochTZ(viewDate, TIMEZONE) % items.length;
+    return items[perm[idx]];
+  }
+
+  function pickRandomItem(items){
+    const idx=Math.floor(Math.random()*items.length);
+    return items[idx];
+  }
+
+  function setHidden(el, yes){ el.classList.toggle('hidden', !!yes); }
+
+  // === SHUFFLE STATE (no repeat) ===
+  const LS_KEY_PREFIX = 'perle_state_';
+  function loadShuffleState(len, hash){
+    const key = LS_KEY_PREFIX + hash;
+    try{
+      const raw = localStorage.getItem(key);
+      if(raw){
+        const st = JSON.parse(raw);
+        if(Array.isArray(st.order) && st.order.length===len && Number.isInteger(st.pos)){
+          let pos = Number.isInteger(st.pos) ? st.pos : 0; if(pos < 0) pos = 0; if(pos > len) pos = len; return { key, order: st.order, pos };
+        }
+      }
+    }catch{}
+    const order = seededShuffle(Array.from({length: len}, (_,i)=>i), String(hash));
+    return { key, order, pos: 0 };
+  }
+  function saveShuffleState(state){ localStorage.setItem(state.key, JSON.stringify({order: state.order, pos: state.pos})); }
+  function advanceAndGetShuffleItem(items, state){
+    if(items.length===0) return { item:{text:'— (nessuna frase) —'}, state };
+    if(state.pos >= state.order.length){
+      state.order = seededShuffle(Array.from({length: items.length}, (_,i)=>i), String(ITEMS_HASH ^ Date.now()));
+      state.pos = 0;
+    }
+    const idx = state.order[state.pos];
+    const item = items[idx];
+    state.pos += 1;
+    saveShuffleState(state);
+    return { item, state };
+  }
+
+  function render(){
+    const elDate = document.getElementById('date');
+    const elPhrase = document.getElementById('phrase');
+    const elFig = document.getElementById('figure');
+    const elImg = document.getElementById('img');
+    const elCap = document.getElementById('caption');
+    const aOpen = document.getElementById('openImg');
+    const btnPrev = document.getElementById('prev');
+    const btnNext = document.getElementById('next');
+
+    let item;
+    if(MODE==='shuffle'){
+      const st = loadShuffleState(ITEMS.length, ITEMS_HASH);
+      const res = advanceAndGetShuffleItem(ITEMS, st);
+      item = res.item;
+      elDate.textContent = '';
+      setHidden(btnPrev, true);
+      setHidden(btnNext, true);
+    } else {
+      const now = nowInTZ(TIMEZONE);
+      const view = new Date(now.getTime() + offsetDays*86400000);
+      item = pickDailyItem(ITEMS, view);
+      const fmt = new Intl.DateTimeFormat('it-IT', { timeZone: TIMEZONE, weekday:'long', year:'numeric', month:'long', day:'numeric' });
+      elDate.textContent = fmt.format(view);
+      setHidden(btnPrev, false);
+      setHidden(btnNext, false);
+    }
+
+    elPhrase.textContent = item.text || '';
+
+    if(item.img){
+      elImg.src = item.img;
+      elImg.alt = item.alt || '';
+      elCap.textContent = item.caption || '';
+      setHidden(elFig, false);
+      setHidden(aOpen, false);
+      aOpen.href = item.img;
+    } else {
+      setHidden(elFig, true);
+      setHidden(aOpen, true);
+      elImg.removeAttribute('src');
+      elImg.alt = '';
+      elCap.textContent = '';
+    }
+  }
+
+  async function init(){
+    const elError = document.getElementById('error');
+    try{
+      ITEMS = await loadItems();
+      ITEMS_HASH = hashString(JSON.stringify(ITEMS));
+      if(!ITEMS.length) throw new Error('Nessun elemento in items.json');
+      render();
+    } catch(err){
+      setHidden(elError, false);
+      elError.textContent = err.message + '\nAssicurati che esista un file items.json valido nella root e che contenga un array di oggetti con almeno {"text": "..."}.';
+    }
+  }
+
+  // Eventi
+  document.getElementById('prev').addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays--; render(); } });
+  document.getElementById('next').addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays++; render(); } });
+  document.getElementById('copy').addEventListener('click', async ()=>{
+    try { await navigator.clipboard.writeText(document.getElementById('phrase').textContent); const btn=document.getElementById('copy'); const t=btn.textContent; btn.textContent='Copiato!'; setTimeout(()=>btn.textContent=t, 1200); } catch(e){ alert('Impossibile copiare: '+e); }
+  });
+
+  init();
+  </script>
+</body>
+</html>
