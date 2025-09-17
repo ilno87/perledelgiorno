@@ -21,6 +21,8 @@
     .imgbox { position: relative; background:#0e1430; border:1px solid var(--line); border-radius: 14px; overflow:hidden; box-shadow: 0 8px 22px rgba(0,0,0,.35); }
     .imgbox img{ display:block; max-width:100%; height:auto; width:100%; object-fit:contain }
     figcaption { font-size: .9rem; opacity:.85; margin-top:8px }
+    .hidden { display:none !important; }
+    .error { background:#2a1330; border:1px solid #7b2a3c; color:#ffd6de; padding:10px 12px; border-radius:12px; margin-top:12px; }
   </style>
 </head>
 <body>
@@ -29,17 +31,18 @@
       <h1>Perla del giorno 💎</h1>
       <div class="meta" id="date"></div>
       <p id="phrase">Caricamento…</p>
-      <figure id="figure" style="display:none">
+      <figure id="figure" class="hidden">
         <div class="imgbox">
           <img id="img" alt="" />
         </div>
         <figcaption id="caption"></figcaption>
       </figure>
+      <div id="error" class="error hidden"></div>
       <div class="footer">
         <button id="prev" title="Giorno precedente">◀︎</button>
         <button id="next" title="Giorno successivo">▶︎</button>
         <button id="copy">Copia testo</button>
-        <a id="openImg" class="btn" href="#" target="_blank" style="display:none">Apri immagine</a>
+        <a id="openImg" class="btn hidden" href="#" target="_blank">Apri immagine</a>
       </div>
     </div>
   </div>
@@ -48,18 +51,16 @@
   // === CONFIG ===
   const MODE = 'random';       // 'random' per test (cambia ad ogni F5) | 'daily' per produzione (una al giorno)
   const TIMEZONE = 'Europe/Rome';
-  const SEED = 'perle-v2';     // cambia per rimescolare l'ordine in modalità 'daily'
+  const SEED = 'perle-v3';     // cambia per rimescolare l'ordine in modalità 'daily'
 
-  // === DATI ===
-  const ITEMS = [
-    { text: 'Il server è lento perché è pieno.' },
-    { text: 'Spegnilo e riaccendilo, fidati.' },
-    { text: 'Funzionava ieri, giuro.' },
-    { text: 'È colpa della VPN.' },
-    { text: 'Prova a svuotare la cache del monitor.' },
-    //{ text: 'Non è un bug, è una feature emergente.', img: 'images/esempio.jpg', alt: 'Biglietto/nota stampata di esempio', caption: 'Esempio di perla con immagine. Sostituisci con il tuo file.' },
-    { img: 'images/pmeda.png' },
-  ];
+  // Carica l'elenco da file esterno JSON (nella root del sito)
+  async function loadItems(){
+    const res = await fetch('items.json', { cache: 'no-cache' });
+    if(!res.ok) throw new Error('Impossibile caricare items.json: '+res.status);
+    const data = await res.json();
+    if(!Array.isArray(data)) throw new Error('items.json non è un array');
+    return data;
+  }
 
   // === UTIL PER DAILY ===
   function xmur3(str){ let h=1779033703^str.length; for(let i=0;i<str.length;i++){ h=Math.imul(h^str.charCodeAt(i),3432918353); h=h<<13|h>>>19; } return function(){ h=Math.imul(h^(h>>>16),2246822507); h=Math.imul(h^(h>>>13),3266489909); return (h^(h>>>16))>>>0; } }
@@ -69,69 +70,87 @@
   function startOfDayTZ(d, tz){ const p=new Intl.DateTimeFormat('en-CA',{ timeZone: tz, year:'numeric', month:'2-digit', day:'2-digit'}).formatToParts(d); const y=+p.find(q=>q.type==='year').value; const m=+p.find(q=>q.type==='month').value; const day=+p.find(q=>q.type==='day').value; return new Date(Date.UTC(y, m-1, day)); }
   function daysSinceEpochTZ(d, tz){ const sod=startOfDayTZ(d, tz); return Math.floor(sod.getTime()/86400000); }
 
-  function pickItem(){
-    if(!ITEMS.length) return {index:0,total:0,item:{text:'— (nessuna frase) —'}};
-    if(MODE==='random'){
-      const idx=Math.floor(Math.random()*ITEMS.length);
-      return { index: idx, total: ITEMS.length, item: ITEMS[idx] };
-    }
-    // MODE === 'daily'
-    const perm = seededShuffle(ITEMS.map((_,i)=>i), SEED);
-    const idx = daysSinceEpochTZ(nowInTZ(TIMEZONE), TIMEZONE) % ITEMS.length;
-    return { index: idx, total: ITEMS.length, item: ITEMS[perm[idx]] };
+  // Stato
+  let ITEMS = [];
+  let offsetDays = 0; // usato solo in daily per sfogliare
+
+  function pickDailyItem(items, viewDate){
+    const perm = seededShuffle(items.map((_,i)=>i), SEED);
+    const idx = daysSinceEpochTZ(viewDate, TIMEZONE) % items.length;
+    return items[perm[idx]];
   }
 
-  // === UI ===
-  const elDate = document.getElementById('date');
-  const elPhrase = document.getElementById('phrase');
-  const btnPrev = document.getElementById('prev');
-  const btnNext = document.getElementById('next');
-  const btnCopy = document.getElementById('copy');
-  const elFig = document.getElementById('figure');
-  const elImg = document.getElementById('img');
-  const elCap = document.getElementById('caption');
-  const aOpen = document.getElementById('openImg');
+  function pickRandomItem(items){
+    const idx=Math.floor(Math.random()*items.length);
+    return items[idx];
+  }
 
-  let offsetDays = 0;
+  function setHidden(el, yes){ el.classList.toggle('hidden', !!yes); }
 
   function render(){
-    let info;
+    const elDate = document.getElementById('date');
+    const elPhrase = document.getElementById('phrase');
+    const elFig = document.getElementById('figure');
+    const elImg = document.getElementById('img');
+    const elCap = document.getElementById('caption');
+    const aOpen = document.getElementById('openImg');
+    const btnPrev = document.getElementById('prev');
+    const btnNext = document.getElementById('next');
+
+    let item;
     if(MODE==='random'){
-      info = pickItem();
+      item = pickRandomItem(ITEMS);
       elDate.textContent = '';
+      setHidden(btnPrev, true);
+      setHidden(btnNext, true);
     } else {
       const now = nowInTZ(TIMEZONE);
       const view = new Date(now.getTime() + offsetDays*86400000);
-      const perm = seededShuffle(ITEMS.map((_,i)=>i), SEED);
-      const idx = daysSinceEpochTZ(view, TIMEZONE) % ITEMS.length;
-      info = { index: idx, total: ITEMS.length, item: ITEMS[perm[idx]] };
+      item = pickDailyItem(ITEMS, view);
       const fmt = new Intl.DateTimeFormat('it-IT', { timeZone: TIMEZONE, weekday:'long', year:'numeric', month:'long', day:'numeric' });
       elDate.textContent = fmt.format(view);
+      setHidden(btnPrev, false);
+      setHidden(btnNext, false);
     }
 
-    elPhrase.textContent = info.item.text || '';
+    elPhrase.textContent = item.text || '';
 
-    if(info.item.img){
-      elImg.src = info.item.img;
-      elImg.alt = info.item.alt || '';
-      elCap.textContent = info.item.caption || '';
-      elFig.style.display = '';
-      aOpen.style.display = '';
-      aOpen.href = info.item.img;
+    if(item.img){
+      elImg.src = item.img;
+      elImg.alt = item.alt || '';
+      elCap.textContent = item.caption || '';
+      setHidden(elFig, false);
+      setHidden(aOpen, false);
+      aOpen.href = item.img;
     } else {
-      elFig.style.display = 'none';
-      aOpen.style.display = 'none';
+      setHidden(elFig, true);
+      setHidden(aOpen, true);
       elImg.removeAttribute('src');
+      elImg.alt = '';
+      elCap.textContent = '';
     }
   }
 
-  btnPrev.addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays--; render(); } });
-  btnNext.addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays++; render(); } });
-  btnCopy.addEventListener('click', async ()=>{
-    try { await navigator.clipboard.writeText(document.getElementById('phrase').textContent); btnCopy.textContent='Copiato!'; setTimeout(()=>btnCopy.textContent='Copia testo', 1200); } catch(e){ alert('Impossibile copiare: '+e); }
+  async function init(){
+    const elError = document.getElementById('error');
+    try{
+      ITEMS = await loadItems();
+      if(!ITEMS.length) throw new Error('Nessun elemento in items.json');
+      render();
+    } catch(err){
+      setHidden(elError, false);
+      elError.textContent = err.message + '\nAssicurati che esista un file items.json valido nella root e che contenga un array di oggetti con almeno {"text": "..."}.';
+    }
+  }
+
+  // Eventi
+  document.getElementById('prev').addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays--; render(); } });
+  document.getElementById('next').addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays++; render(); } });
+  document.getElementById('copy').addEventListener('click', async ()=>{
+    try { await navigator.clipboard.writeText(document.getElementById('phrase').textContent); const btn=document.getElementById('copy'); const t=btn.textContent; btn.textContent='Copiato!'; setTimeout(()=>btn.textContent=t, 1200); } catch(e){ alert('Impossibile copiare: '+e); }
   });
 
-  render();
+  init();
   </script>
 </body>
 </html>

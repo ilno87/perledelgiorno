@@ -1,0 +1,9 @@
+[
+  { "text": "Il server è lento perché è pieno." },
+  { "text": "Spegnilo e riaccendilo, fidati." },
+  {
+    "text": "Cliente: Non funzionano le mail verso helpdesk@siapcn.it\nEdo verifica, non trova nulla, cerca di capire con il cliente dov'è l'errore.\nIl cliente inviava mail alla casella: helpdesck@siapcn.it\nCliente \"Ma mi hanno fatto loro lo spelling\""
+  },
+  { "img": "images/pmeda.png",
+  }
+]
