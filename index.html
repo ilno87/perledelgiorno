@@ -5,68 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Perla del Giorno</title>
   <style>
+    :root{
+      --bg:#0b1020; --card:#141a32; --text:#f5f7ff; --muted:#dfe5ff; --line:#2b3363;
+    }
     html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
-    .wrap { min-height: 100%; display: grid; place-items: center; padding: 24px; background: #0b1020; color: #f5f7ff; }
-    .card { max-width: 780px; width: 100%; background: #141a32; padding: 28px; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
-    h1 { margin: 0 0 8px; font-size: 1.6rem; font-weight: 700; }
+    .wrap { min-height: 100%; display: grid; place-items: center; padding: 24px; background: var(--bg); color: var(--text); }
+    .card { max-width: 880px; width: 100%; background: var(--card); padding: 28px; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+    h1 { margin: 0 0 8px; font-size: 1.6rem; font-weight: 700; display:flex; align-items:center; gap:.5rem }
     p#phrase { font-size: 1.6rem; line-height: 1.5; margin: 12px 0 0; white-space: pre-wrap; }
-    .meta { opacity: .7; font-size: .9rem; margin-top: 14px; }
-    .footer { margin-top: 22px; display: flex; gap: 8px; flex-wrap: wrap; }
-    button, .chip { background: #1f2647; color: #dfe5ff; border: 1px solid #2b3363; padding: 8px 12px; border-radius: 12px; cursor: pointer; font-size: .95rem; }
-    button:hover { filter: brightness(1.08); }
+    .meta { opacity: .7; font-size: .9rem; margin-top: 6px; }
+    .footer { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+    button, .chip, a.btn { background: #1f2647; color: var(--muted); border: 1px solid var(--line); padding: 8px 12px; border-radius: 12px; cursor: pointer; font-size: .95rem; text-decoration:none }
+    button:hover, a.btn:hover { filter: brightness(1.08); }
     .chip { cursor: default; }
+    figure { margin: 16px 0 0; }
+    .imgbox { position: relative; background:#0e1430; border:1px solid var(--line); border-radius: 14px; overflow:hidden; box-shadow: 0 8px 22px rgba(0,0,0,.35); }
+    .imgbox img{ display:block; max-width:100%; height:auto; width:100%; object-fit:contain }
+    figcaption { font-size: .9rem; opacity:.85; margin-top:8px }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
       <h1>Perla del giorno 💎</h1>
+      <div class="meta" id="date"></div>
       <p id="phrase">Caricamento…</p>
+      <figure id="figure" style="display:none">
+        <div class="imgbox">
+          <img id="img" alt="" />
+        </div>
+        <figcaption id="caption"></figcaption>
+      </figure>
       <div class="footer">
         <span class="chip" id="indexChip"></span>
-        <button id="copy">Copia</button>
+        <button id="prev" title="Giorno precedente">◀︎</button>
+        <button id="next" title="Giorno successivo">▶︎</button>
+        <button id="copy">Copia testo</button>
+        <a id="openImg" class="btn" href="#" target="_blank" style="display:none">Apri immagine</a>
       </div>
     </div>
   </div>
 
   <script>
-  // === ELENCO FRASE ===
-  const PHRASES = [
-    'Il server è lento perché è pieno.',
-    'Spegnilo e riaccendilo, fidati.',
-    'Funzionava ieri, giuro.',
-    'È colpa della VPN.',
-    'Prova a svuotare la cache del monitor.',
-    'Se lo facciamo in produzione va meglio.',
-    'Ho i permessi di admin? Chiedo a me stesso.',
-    'Non è un bug, è una feature emergente.'
+  // === CONFIG ===
+  const MODE = 'random';       // 'random' per test (cambia ad ogni F5) | 'daily' per produzione (una al giorno)
+  const TIMEZONE = 'Europe/Rome';
+  const SEED = 'perle-v2';     // cambia per rimescolare l'ordine in modalità 'daily'
+
+  // === DATI ===
+  // Ogni elemento può essere solo testo: {text: '...'}
+  // oppure testo + immagine: {text: '...', img: 'images/foto1.jpg', alt: 'descrizione', caption: 'nota sotto immagine'}
+  const ITEMS = [
+    { text: 'Il server è lento perché è pieno.' },
+    { text: 'Spegnilo e riaccendilo, fidati.' },
+    { text: 'Funzionava ieri, giuro.' },
+    { text: 'È colpa della VPN.' },
+    { text: 'Prova a svuotare la cache del monitor.' },
+    { text: 'Non è un bug, è una feature emergente.', img: 'images/pmeda.jpg', alt: 'Biglietto/nota stampata di esempio', caption: 'Esempio di perla con immagine. Sostituisci con il tuo file.' },
   ];
 
-  // Ogni refresh → frase casuale
-  function phraseRandom(list){
-    if(!list.length) return { index: 0, total: 0, text: '— (nessuna frase) —' };
-    const idx = Math.floor(Math.random() * list.length);
-    return { index: idx, total: list.length, text: list[idx] };
+  // === UTIL PER DAILY ===
+  function xmur3(str){ let h=1779033703^str.length; for(let i=0;i<str.length;i++){ h=Math.imul(h^str.charCodeAt(i),3432918353); h=h<<13|h>>>19; } return function(){ h=Math.imul(h^(h>>>16),2246822507); h=Math.imul(h^(h>>>13),3266489909); return (h^(h>>>16))>>>0; } }
+  function mulberry32(a){ return function(){ let t=a+=0x6D2B79F5; t=Math.imul(t^(t>>>15),1|t); t^=t+Math.imul(t^(t>>>7),61|t); return ((t^(t>>>14))>>>0)/4294967296; } }
+  function seededShuffle(arr, seedStr){ const seed = xmur3(seedStr)(); const rand = mulberry32(seed); const a = arr.slice(); for (let i=a.length-1; i>0; i--){ const j = Math.floor(rand()*(i+1)); [a[i], a[j]]=[a[j], a[i]]; } return a; }
+  function nowInTZ(tz){ return new Date(new Date().toLocaleString('en-GB', { timeZone: tz })); }
+  function startOfDayTZ(d, tz){ const p=new Intl.DateTimeFormat('en-CA',{ timeZone: tz, year:'numeric', month:'2-digit', day:'2-digit'}).formatToParts(d); const y=+p.find(q=>q.type==='year').value; const m=+p.find(q=>q.type==='month').value; const day=+p.find(q=>q.type==='day').value; return new Date(Date.UTC(y, m-1, day)); }
+  function daysSinceEpochTZ(d, tz){ const sod=startOfDayTZ(d, tz); return Math.floor(sod.getTime()/86400000); }
+
+  function pickItem(){
+    if(!ITEMS.length) return {index:0,total:0,item:{text:'— (nessuna frase) —'}};
+    if(MODE==='random'){
+      const idx=Math.floor(Math.random()*ITEMS.length);
+      return { index: idx, total: ITEMS.length, item: ITEMS[idx] };
+    }
+    // MODE === 'daily'
+    const perm = seededShuffle(ITEMS.map((_,i)=>i), SEED);
+    const idx = daysSinceEpochTZ(nowInTZ(TIMEZONE), TIMEZONE) % ITEMS.length;
+    return { index: idx, total: ITEMS.length, item: ITEMS[perm[idx]] };
   }
 
+  // === UI ===
+  const elDate = document.getElementById('date');
   const elPhrase = document.getElementById('phrase');
   const elIndex = document.getElementById('indexChip');
+  const btnPrev = document.getElementById('prev');
+  const btnNext = document.getElementById('next');
   const btnCopy = document.getElementById('copy');
+  const elFig = document.getElementById('figure');
+  const elImg = document.getElementById('img');
+  const elCap = document.getElementById('caption');
+  const aOpen = document.getElementById('openImg');
+
+  let offsetDays = 0; // valido solo come anteprima per daily con prev/next
 
   function render(){
-    const f = phraseRandom(PHRASES);
-    elPhrase.textContent = f.text;
-    elIndex.textContent = `Frase ${f.index+1} di ${f.total}`;
+    let info;
+    if(MODE==='random'){
+      info = pickItem();
+      elDate.textContent = '(test: random ad ogni refresh)';
+    } else {
+      const now = nowInTZ(TIMEZONE);
+      const view = new Date(now.getTime() + offsetDays*86400000);
+      const perm = seededShuffle(ITEMS.map((_,i)=>i), SEED);
+      const idx = daysSinceEpochTZ(view, TIMEZONE) % ITEMS.length;
+      info = { index: idx, total: ITEMS.length, item: ITEMS[perm[idx]] };
+      const fmt = new Intl.DateTimeFormat('it-IT', { timeZone: TIMEZONE, weekday:'long', year:'numeric', month:'long', day:'numeric' });
+      elDate.textContent = fmt.format(view);
+    }
+
+    elPhrase.textContent = info.item.text || '';
+    elIndex.textContent = `${MODE==='random' ? 'Frase' : 'Giorno'} ${info.index+1} di ${info.total}`;
+
+    if(info.item.img){
+      elImg.src = info.item.img;
+      elImg.alt = info.item.alt || '';
+      elCap.textContent = info.item.caption || '';
+      elFig.style.display = '';
+      aOpen.style.display = '';
+      aOpen.href = info.item.img;
+    } else {
+      elFig.style.display = 'none';
+      aOpen.style.display = 'none';
+      elImg.removeAttribute('src');
+    }
   }
 
+  btnPrev.addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays--; render(); } });
+  btnNext.addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays++; render(); } });
   btnCopy.addEventListener('click', async ()=>{
-    try {
-      await navigator.clipboard.writeText(elPhrase.textContent);
-      btnCopy.textContent='Copiato!';
-      setTimeout(()=>btnCopy.textContent='Copia', 1200);
-    } catch(e){
-      alert('Impossibile copiare: '+e);
-    }
+    try { await navigator.clipboard.writeText(document.getElementById('phrase').textContent); btnCopy.textContent='Copiato!'; setTimeout(()=>btnCopy.textContent='Copia testo', 1200); } catch(e){ alert('Impossibile copiare: '+e); }
   });
 
   render();
