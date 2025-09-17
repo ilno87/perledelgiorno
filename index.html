@@ -7,35 +7,30 @@
   <style>
     :root{
       --bg:#0b1020; --card:#141a32; --text:#f5f7ff; --muted:#dfe5ff; --line:#2b3363;
-      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
-    /* Layout pulito, senza scrollbar orizzontali */
-    html, body { height:auto; min-height:100%; margin:0; background:var(--bg); color:var(--text); font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans'; }
-    .wrap { width:min(960px, 94vw); margin: clamp(12px, 2svh, 24px) auto; padding-inline: clamp(8px, 4vw, 24px); box-sizing: border-box; }
-    .card { background: var(--card); padding: clamp(14px, 2.6vw, 28px); border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
-    h1 { margin: 0 0 8px; font-size: clamp(1.3rem, 2.4vw, 1.8rem); font-weight: 800; display:flex; align-items:center; gap:.5rem }
+    /* Layout semplice, elegante, senza scrollbar interne */
+    html, body { height:auto; min-height:100%; margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans'; background:var(--bg); color:var(--text); }
+    .wrap { max-width: 960px; width: 92vw; margin: 28px auto; }
+    .card { background: var(--card); padding: clamp(16px,2.6vw,28px); border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+    h1 { margin: 0 0 10px; font-size: clamp(1.3rem,2.4vw,1.7rem); font-weight: 800; display:flex; align-items:center; gap:.5rem }
     .meta { opacity:.75; font-size:.95rem; margin-top:2px }
-    #phrase { font-size: clamp(1.1rem, 2.4vw, 1.5rem); line-height:1.6; margin: 12px 0 0; white-space: pre-wrap; word-break: break-word; overflow-wrap:anywhere }
+    #phrase { font-size: clamp(1.1rem,2.4vw,1.5rem); line-height:1.6; margin: 12px 0 0; white-space: pre-wrap; word-break: break-word; overflow-wrap:anywhere }
 
-    figure { margin: 16px 0 0; }
-    .imgbox { background:#0e1430; border:1px solid var(--line); border-radius: 14px; overflow:hidden; box-shadow: 0 8px 22px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; }
+    figure { margin: 18px 0 0; }
+    .imgbox { background:#0e1430; border:1px solid var(--line); border-radius: 14px; overflow:hidden; box-shadow: 0 8px 22px rgba(0,0,0,.35); }
     .imgbox img{ display:block; width:100%; height:auto; max-width:100%; object-fit: contain }
     figcaption { font-size:.95rem; opacity:.9; margin-top:8px; word-break:break-word; overflow-wrap:anywhere }
 
-    .footer { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; padding-bottom: max(8px, var(--safe-bottom)); }
+    .footer { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap }
     button, a.btn { background:#1f2647; color:var(--muted); border:1px solid var(--line); padding:10px 14px; border-radius:12px; cursor:pointer; font-size:1rem; text-decoration:none }
     button:hover, a.btn:hover { filter: brightness(1.08) }
     .hidden { display:none !important }
 
     /* Mobile tuning */
     @media (max-width: 640px) {
-      .card { padding: 14px; border-radius: 14px; }
-      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
-      #phrase { font-size: clamp(1rem, 4.2vw, 1.25rem); }
+      .wrap { width: 94vw; margin: 16px auto; }
       .footer { flex-direction: column }
       button, a.btn { width: 100% }
-      /* limite di sicurezza per l’immagine su schermi piccoli, poi JS la affina */
-      .imgbox { max-height: 58svh; }
     }
   </style>
 </head>
@@ -47,16 +42,16 @@
       <p id="phrase">Caricamento…</p>
 
       <figure id="figure" class="hidden">
-        <div class="imgbox" id="imgbox">
+        <div class="imgbox">
           <img id="img" alt="" loading="lazy" decoding="async" />
         </div>
         <figcaption id="caption"></figcaption>
       </figure>
 
-      <div id="error" class="hidden" style="margin-top:12px;background:#2a1330;border:1px solid #7b2a3c;color:#ffd6de;padding:10px 12px;border-radius:12px"></div>
+      <div id="error" class="error hidden" style="margin-top:12px;background:#2a1330;border:1px solid #7b2a3c;color:#ffd6de;padding:10px 12px;border-radius:12px"></div>
 
       <div class="footer">
-        <!-- In shuffle le frecce restano nascoste -->
+        <!-- In shuffle niente frecce; in daily si mostrano -->
         <button id="prev" class="hidden" title="Giorno precedente">◀︎ Giorno precedente</button>
         <button id="next" class="hidden" title="Giorno successivo">Giorno successivo ▶︎</button>
         <button id="copy">Copia testo</button>
@@ -67,20 +62,18 @@
 
   <script>
   // === CONFIG ===
-  const MODE = 'shuffle';       // 'shuffle' = random senza ripetizioni (persistente) | 'daily' = 1 al giorno
+  const MODE = 'shuffle';       // 'shuffle' per random senza ripetizioni (persistente) | 'daily' per 1 al giorno
   const TIMEZONE = 'Europe/Rome';
-  const SEED = 'perle-v8';
+  const SEED = 'perle-v7';
 
-  // === LOAD DATA ===
+  // === DATI ===
   async function loadItems(){
     const res = await fetch('items.json', { cache: 'no-cache' });
     if(!res.ok) throw new Error('Impossibile caricare items.json: '+res.status);
     const txt = await res.text();
     const data = JSON.parse(txt);
     if(!Array.isArray(data)) throw new Error('items.json non è un array');
-    // filtro “anti-minchiate”: solo oggetti con text stringa e niente CSS incollato
-    const clean = data.filter(it => it && typeof it.text === 'string' && !/^\s*html,\s*body\s*\{/.test(it.text));
-    return { items: clean, hash: hashString(txt) };
+    return { items: data, hash: hashString(txt) };
   }
 
   // === UTIL ===
@@ -92,10 +85,10 @@
   function startOfDayTZ(d, tz){ const p=new Intl.DateTimeFormat('en-CA',{ timeZone: tz, year:'numeric', month:'2-digit', day:'2-digit'}).formatToParts(d); const y=+p.find(q=>q.type==='year').value; const m=+p.find(q=>q.type==='month').value; const day=+p.find(q=>q.type==='day').value; return new Date(Date.UTC(y, m-1, day)); }
   function daysSinceEpochTZ(d, tz){ const sod=startOfDayTZ(d, tz); return Math.floor(sod.getTime()/86400000); }
 
-  // === STATE ===
+  // === STATO ===
   let ITEMS = [], ITEMS_HASH = 0, offsetDays = 0;
 
-  // === SHUFFLE (persistente) ===
+  // === SHUFFLE PERSISTENTE (NO REPEAT) ===
   const LS_KEY_PREFIX = 'perle_state_';
   function loadShuffleState(len, hash){
     const key = LS_KEY_PREFIX + hash;
@@ -103,10 +96,10 @@
       const raw = localStorage.getItem(key);
       if(raw){
         const st = JSON.parse(raw);
-        if(Array.isArray(st.order) && st.order.length===len && Number.isInteger(st.pos)){
+        if(Array.isArray(st.order) && st.order.length === len && Number.isInteger(st.pos)){
           let pos = st.pos;
-          if (pos < 0) pos = 0;
-          if (pos > len) pos = len;   // consenti pos === len per far scattare il rimescolo
+          if(pos < 0) pos = 0;
+          if(pos > len) pos = len; // consenti pos === len per trigger rimescolo
           return { key, order: st.order, pos };
         }
       }
@@ -126,34 +119,6 @@
     state.pos += 1;
     saveShuffleState(state);
     return { item, state };
-  }
-
-  // === RESPONSIVE IMAGE FIT ===
-  function fitToScreen() {
-    const card = document.querySelector('.card');
-    const header = document.querySelector('h1').parentElement;
-    const footer = document.querySelector('.footer');
-    const imgbox = document.getElementById('imgbox');
-    const fig = document.getElementById('figure');
-    if (!imgbox || fig.classList.contains('hidden')) return;
-
-    const vv = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-    const cs = getComputedStyle(card);
-    const padV = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
-
-    const Hh = header ? header.offsetHeight : 0;
-    const Hf = footer ? footer.offsetHeight : 0;
-
-    // margine respirazione
-    const available = Math.max(140, vv - padV - Hh - Hf - 16);
-    imgbox.style.maxHeight = available + 'px';
-
-    const img = document.getElementById('img');
-    if (img) {
-      img.style.maxHeight = '100%';
-      img.style.width = '100%';
-      img.style.objectFit = 'contain';
-    }
   }
 
   // === RENDER ===
@@ -193,40 +158,36 @@
       elImg.src = item.img; elImg.alt = item.alt || '';
       elCap.textContent = item.caption || '';
       elFig.classList.remove('hidden');
-      aOpen.classList.remove('hidden'); aOpen.href = item.img;
+      aOpen.classList.remove('hidden');
+      aOpen.href = item.img;
     } else {
       elFig.classList.add('hidden');
       aOpen.classList.add('hidden');
       elImg.removeAttribute('src'); elImg.alt=''; elCap.textContent='';
     }
-
-    // adatta l'immagine allo spazio reale del device
-    requestAnimationFrame(fitToScreen);
-    if (elImg) elImg.onload = fitToScreen;
   }
 
   // === INIT ===
   async function init(){
     const elError = document.getElementById('error');
     try{
-      const {items, hash} = await loadItems();
+      const {items,hash} = await loadItems();
       ITEMS = items; ITEMS_HASH = hash;
       if(!ITEMS.length) throw new Error('Nessun elemento in items.json');
       render();
-      addEventListener('resize', fitToScreen);
-      addEventListener('orientationchange', fitToScreen);
+      addEventListener('resize', render);
+      addEventListener('orientationchange', render);
     }catch(err){
       elError.classList.remove('hidden');
-      elError.textContent = err.message + '\nAssicurati che esista items.json valido (array di oggetti con almeno {"text":"..."})';
+      elError.textContent = err.message + '\nAssicurati che esista items.json valido (array di oggetti con almeno {"text":"..."}).';
     }
   }
 
-  // === EVENTS ===
+  // === EVENTI ===
   btnPrev.addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays--; render(); } });
   btnNext.addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays++; render(); } });
-  document.getElementById('copy').addEventListener('click', async (ev)=>{
-    try { await navigator.clipboard.writeText(elPhrase.textContent); const b=ev.currentTarget; const t=b.textContent; b.textContent='Copiato!'; setTimeout(()=>b.textContent=t,1200); }
-    catch(e){ alert('Impossibile copiare: '+e); }
+  document.getElementById('copy').addEventListener('click', async ()=>{
+    try { await navigator.clipboard.writeText(elPhrase.textContent); const b=this?.event?.target || document.getElementById('copy'); const t=b.textContent; b.textContent='Copiato!'; setTimeout(()=>b.textContent=t,1200); } catch(e){ alert('Impossibile copiare: '+e); }
   });
 
   init();
