@@ -1,0 +1,10 @@
+# netlify.toml
+[build]
+  publish = "."
+  command = ""   # niente build, è solo HTML
+
+# Evita cache lunga della home (la frase cambia di giorno in giorno lato client)
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+  Cache-Control = "max-age=0, must-revalidate"
