@@ -5,360 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Perla del Giorno</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    
     :root{
-      --bg: #0a0a0b;
-      --bg-secondary: #111113;
-      --surface: #1a1a1d;
-      --surface-hover: #222225;
-      --border: #2a2a2d;
-      --text-primary: #ffffff;
-      --text-secondary: #a1a1a9;
-      --text-muted: #6b6b73;
-      --accent: #0084ff;
-      --accent-hover: #0073e6;
-      --accent-light: rgba(0, 132, 255, 0.1);
-      --success: #00c851;
-      --radius: 16px;
-      --radius-sm: 8px;
-      --shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.25);
+      --bg:#0b1020; --card:#141a32; --text:#f5f7ff; --muted:#dfe5ff; --line:#2b3363;
     }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    html, body { 
-      height: 100%; 
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text-primary);
-      overscroll-behavior: contain;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-    
-    .app { 
-      height: 100vh; 
-      width: 100vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(1rem, 3vw, 2rem);
-    }
-    
-    .container { 
-      width: 100%;
-      height: 100%;
-      max-width: min(600px, 100vw);
-      max-height: 100vh;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    
-    .header {
-      padding: clamp(1.5rem, 4vw, 2rem) clamp(1.5rem, 4vw, 2rem) 0;
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
-      flex-shrink: 0;
-    }
-    
-    .title { 
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 700;
-      color: var(--text-primary);
-      display: flex; 
-      align-items: center; 
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .date { 
-      color: var(--text-secondary);
-      font-size: clamp(0.875rem, 2.5vw, 1rem);
-      font-weight: 400;
-    }
-    
-    .content {
-      flex: 1;
-      padding: clamp(1.5rem, 4vw, 2rem);
-      display: flex;
-      flex-direction: column;
-      gap: clamp(1.5rem, 4vw, 2rem);
-      min-height: 0;
-      overflow-y: auto;
-    }
-    
-    .quote {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: clamp(1.5rem, 4vw, 2rem);
-      position: relative;
-    }
-    
-    .quote::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: var(--accent);
-      border-radius: 2px 0 0 2px;
-    }
-    
-    .quote-text { 
-      font-size: clamp(1.125rem, 3.5vw, 1.375rem);
-      line-height: 1.6;
-      color: var(--text-primary);
-      font-weight: 400;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      margin-bottom: 1rem;
-    }
-    
-    .quote-author {
-      font-size: clamp(0.875rem, 2.5vw, 1rem);
-      color: var(--text-muted);
-      font-style: italic;
-    }
-    
-    .media-container {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-      gap: 1rem;
-    }
-    
-    .image-wrapper { 
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 200px;
-      transition: all 0.2s ease;
-    }
-    
-    .image-wrapper:hover {
-      border-color: var(--accent);
-    }
-    
-    .image-wrapper img { 
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-    }
-    
-    .caption { 
-      font-size: clamp(0.875rem, 2.5vw, 1rem);
-      color: var(--text-secondary);
-      text-align: center;
-      line-height: 1.4;
-    }
-    
-    .actions { 
-      padding: 0 clamp(1.5rem, 4vw, 2rem) clamp(1.5rem, 4vw, 2rem);
-      display: flex; 
-      gap: 1rem;
-      flex-wrap: wrap;
-      flex-shrink: 0;
-      border-top: 1px solid var(--border);
-      background: var(--surface);
-      padding-top: clamp(1.5rem, 4vw, 2rem);
-    }
-    
-    .btn { 
-      background: var(--bg-secondary);
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
-      padding: 0.75rem 1rem;
-      border-radius: var(--radius-sm);
-      cursor: pointer; 
-      font-size: 0.875rem;
-      font-weight: 500;
-      font-family: inherit;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      min-height: 44px;
-    }
-    
-    .btn:hover { 
-      background: var(--surface-hover);
-      border-color: var(--accent);
-      color: var(--text-primary);
-    }
-    
-    .btn:active {
-      transform: translateY(1px);
-    }
-    
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-    
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      border-color: var(--accent-hover);
-    }
-    
-    .btn-success {
-      background: var(--success);
-      color: white;
-      border-color: var(--success);
-    }
-    
-    .hidden { 
-      display: none !important; 
-    }
-    
-    .error { 
-      background: rgba(220, 38, 38, 0.1);
-      border: 1px solid rgba(220, 38, 38, 0.2);
-      color: #fca5a5;
-      padding: 1rem;
-      border-radius: var(--radius);
-      font-size: 0.875rem;
-      line-height: 1.5;
-    }
-    
-    /* Scrollbar personalizzata */
-    .content::-webkit-scrollbar {
-      width: 6px;
-    }
-    
-    .content::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    
-    .content::-webkit-scrollbar-thumb {
-      background: var(--border);
-      border-radius: 3px;
-    }
-    
-    .content::-webkit-scrollbar-thumb:hover {
-      background: var(--text-muted);
-    }
-    
-    /* Responsive ottimizzato */
-    @media (max-height: 600px) {
-      .content {
-        gap: 1rem;
-      }
-      
-      .quote {
-        padding: 1rem 1.5rem;
-      }
-      
-      .quote-text {
-        font-size: clamp(1rem, 3vw, 1.25rem);
-        margin-bottom: 0.75rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .actions {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-      
-      .btn {
-        justify-content: center;
-        padding: 0.875rem 1rem;
-      }
-    }
-
-    /* Landscape mobile */
-    @media (max-height: 500px) and (orientation: landscape) {
-      .app {
-        padding: 0.5rem;
-      }
-      
-      .header {
-        padding: 1rem 1.5rem 0;
-      }
-      
-      .content {
-        padding: 1rem 1.5rem;
-        gap: 1rem;
-      }
-      
-      .actions {
-        padding: 1rem 1.5rem;
-        flex-direction: row;
-        gap: 0.75rem;
-      }
-      
-      .btn {
-        padding: 0.5rem 0.875rem;
-        font-size: 0.8rem;
-        min-height: 36px;
-      }
-    }
+    html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
+    .wrap { min-height: 100%; display: grid; place-items: center; padding: 24px; background: var(--bg); color: var(--text); }
+    .card { max-width: 880px; width: 100%; background: var(--card); padding: 28px; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+    h1 { margin: 0 0 8px; font-size: 1.6rem; font-weight: 700; display:flex; align-items:center; gap:.5rem }
+    p#phrase { font-size: 1.6rem; line-height: 1.5; margin: 12px 0 0; white-space: pre-wrap; }
+    .meta { opacity: .7; font-size: .9rem; margin-top: 6px; }
+    .footer { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+    button, a.btn { background: #1f2647; color: var(--muted); border: 1px solid var(--line); padding: 8px 12px; border-radius: 12px; cursor: pointer; font-size: .95rem; text-decoration:none }
+    button:hover, a.btn:hover { filter: brightness(1.08); }
+    figure { margin: 16px 0 0; }
+    .imgbox { position: relative; background:#0e1430; border:1px solid var(--line); border-radius: 14px; overflow:hidden; box-shadow: 0 8px 22px rgba(0,0,0,.35); }
+    .imgbox img{ display:block; max-width:100%; height:auto; width:100%; object-fit:contain }
+    figcaption { font-size: .9rem; opacity:.85; margin-top:8px }
+    .hidden { display:none !important; }
+    .error { background:#2a1330; border:1px solid #7b2a3c; color:#ffd6de; padding:10px 12px; border-radius:12px; margin-top:12px; }
   </style>
 </head>
 <body>
-  <div class="app">
-    <div class="container">
-      <header class="header">
-        <h1 class="title">Perla del giorno 💎</h1>
-        <div class="date" id="date"></div>
-      </header>
-      
-      <main class="content">
-        <div class="quote">
-          <div class="quote-text" id="phrase">Caricamento…</div>
-          <div class="quote-author" id="author"></div>
+  <div class="wrap">
+    <div class="card">
+      <h1>Perla del giorno 💎</h1>
+      <div class="meta" id="date"></div>
+      <p id="phrase">Caricamento…</p>
+      <figure id="figure" class="hidden">
+        <div class="imgbox">
+          <img id="img" alt="" />
         </div>
-        
-        <div class="media-container">
-          <figure id="figure" class="hidden">
-            <div class="image-wrapper">
-              <img id="img" alt="" />
-            </div>
-            <figcaption class="caption" id="caption"></figcaption>
-          </figure>
-          
-          <div id="error" class="error hidden"></div>
-        </div>
-      </main>
-      
-      <div class="actions">
-        <button id="prev" class="btn hidden" title="Giorno precedente">
-          ← Precedente
-        </button>
-        <button id="next" class="btn hidden" title="Giorno successivo">
-          Successivo →
-        </button>
-        <button id="copy" class="btn btn-primary">
-          📋 Copia testo
-        </button>
-        <a id="openImg" class="btn hidden" href="#" target="_blank">
-          🖼️ Apri immagine
-        </a>
+        <figcaption id="caption"></figcaption>
+      </figure>
+      <div id="error" class="error hidden"></div>
+      <div class="footer">
+        <button id="prev" title="Giorno precedente">◀︎</button>
+        <button id="next" title="Giorno successivo">▶︎</button>
+        <button id="copy">Copia testo</button>
+        <a id="openImg" class="btn hidden" href="#" target="_blank">Apri immagine</a>
       </div>
     </div>
   </div>
@@ -414,7 +98,7 @@
       if(raw){
         const st = JSON.parse(raw);
         if(Array.isArray(st.order) && st.order.length===len && Number.isInteger(st.pos)){
-          let pos = Number.isInteger(st.pos) ? st.pos : 0; if(pos < 0) pos = 0; if(pos > len) pos = len; return { key, order: st.order, pos };
+          return { key, order: st.order, pos: Math.min(st.pos, len-1) };
         }
       }
     }catch{}
@@ -438,7 +122,6 @@
   function render(){
     const elDate = document.getElementById('date');
     const elPhrase = document.getElementById('phrase');
-    const elAuthor = document.getElementById('author');
     const elFig = document.getElementById('figure');
     const elImg = document.getElementById('img');
     const elCap = document.getElementById('caption');
@@ -465,7 +148,6 @@
     }
 
     elPhrase.textContent = item.text || '';
-    elAuthor.textContent = item.author || '';
 
     if(item.img){
       elImg.src = item.img;
@@ -492,7 +174,7 @@
       render();
     } catch(err){
       setHidden(elError, false);
-      elError.textContent = err.message + '\n\nAssicurati che esista un file items.json valido nella root e che contenga un array di oggetti con almeno {"text": "..."}.';
+      elError.textContent = err.message + '\nAssicurati che esista un file items.json valido nella root e che contenga un array di oggetti con almeno {"text": "..."}.';
     }
   }
 
@@ -500,21 +182,7 @@
   document.getElementById('prev').addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays--; render(); } });
   document.getElementById('next').addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays++; render(); } });
   document.getElementById('copy').addEventListener('click', async ()=>{
-    try { 
-      await navigator.clipboard.writeText(document.getElementById('phrase').textContent); 
-      const btn = document.getElementById('copy'); 
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '✅ Copiato!';
-      btn.classList.remove('btn-primary');
-      btn.classList.add('btn-success');
-      setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.classList.remove('btn-success');
-        btn.classList.add('btn-primary');
-      }, 2000); 
-    } catch(e){ 
-      alert('Impossibile copiare: '+e); 
-    }
+    try { await navigator.clipboard.writeText(document.getElementById('phrase').textContent); const btn=document.getElementById('copy'); const t=btn.textContent; btn.textContent='Copiato!'; setTimeout(()=>btn.textContent=t, 1200); } catch(e){ alert('Impossibile copiare: '+e); }
   });
 
   init();
