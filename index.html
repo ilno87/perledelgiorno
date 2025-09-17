@@ -98,7 +98,7 @@
       if(raw){
         const st = JSON.parse(raw);
         if(Array.isArray(st.order) && st.order.length===len && Number.isInteger(st.pos)){
-          return { key, order: st.order, pos: Math.min(st.pos, len-1) };
+          let pos = Number.isInteger(st.pos) ? st.pos : 0; if(pos < 0) pos = 0; if(pos > len) pos = len; return { key, order: st.order, pos };
         }
       }
     }catch{}
