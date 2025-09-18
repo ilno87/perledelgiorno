@@ -8,28 +8,79 @@
     :root{
       --bg:#0b1020; --card:#141a32; --text:#f5f7ff; --muted:#dfe5ff; --line:#2b3363;
     }
+
     /* Layout semplice, elegante, senza scrollbar interne */
-    html, body { height:auto; min-height:100%; margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans'; background:var(--bg); color:var(--text); }
+    html, body {
+      height:auto; min-height:100%; margin:0;
+      font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans';
+      background:var(--bg); color:var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
     .wrap { max-width: 960px; width: 92vw; margin: 28px auto; }
-    .card { background: var(--card); padding: clamp(16px,2.6vw,28px); border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
-    h1 { margin: 0 0 10px; font-size: clamp(1.3rem,2.4vw,1.7rem); font-weight: 800; display:flex; align-items:center; gap:.5rem }
-    .meta { opacity:.75; font-size:.95rem; margin-top:2px }
-    #phrase { font-size: clamp(1.1rem,2.4vw,1.5rem); line-height:1.6; margin: 12px 0 0; white-space: pre-wrap; word-break: break-word; overflow-wrap:anywhere }
 
-    figure { margin: 18px 0 0; }
-    .imgbox { background:#0e1430; border:1px solid var(--line); border-radius: 14px; overflow:hidden; box-shadow: 0 8px 22px rgba(0,0,0,.35); }
+    .card {
+      background: var(--card);
+      padding: clamp(18px,3vw,32px);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      text-align: center; /* centra tutto il testo dentro */
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.3rem,2.4vw,1.7rem);
+      font-weight: 800;
+      display:flex;
+      align-items:center;
+      justify-content:center; /* centra contenuto del flex */
+      gap:.5rem;
+    }
+
+    .meta { opacity:.75; font-size:.95rem; margin-top:6px }
+
+    #phrase {
+      font-size: clamp(1.1rem,2.4vw,1.5rem);
+      line-height:1.7;
+      margin: 0;                         /* azzeriamo i margini verticali */
+      padding: clamp(12px,2vw,20px) 0;   /* spazio sopra/sotto per respiro */
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-wrap:anywhere;
+    }
+
+    figure { margin: clamp(14px,2.4vw,22px) 0 0; }
+    .imgbox {
+      background:#0e1430; border:1px solid var(--line); border-radius: 14px;
+      overflow:hidden; box-shadow: 0 8px 22px rgba(0,0,0,.35);
+    }
     .imgbox img{ display:block; width:100%; height:auto; max-width:100%; object-fit: contain }
-    figcaption { font-size:.95rem; opacity:.9; margin-top:8px; word-break:break-word; overflow-wrap:anywhere }
+    figcaption {
+      font-size:.95rem; opacity:.9; margin-top:10px;
+      text-align:center; word-break:break-word; overflow-wrap:anywhere;
+    }
 
-    .footer { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap }
-    button, a.btn { background:#1f2647; color:var(--muted); border:1px solid var(--line); padding:10px 14px; border-radius:12px; cursor:pointer; font-size:1rem; text-decoration:none }
+    .footer {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;          /* un filo più spazio tra i bottoni */
+      flex-wrap: wrap;
+      justify-content: center; /* centra i bottoni */
+    }
+    button, a.btn {
+      background:#1f2647; color:var(--muted);
+      border:1px solid var(--line);
+      padding:10px 14px; border-radius:12px;
+      cursor:pointer; font-size:1rem; text-decoration:none;
+    }
     button:hover, a.btn:hover { filter: brightness(1.08) }
     .hidden { display:none !important }
 
     /* Mobile tuning */
     @media (max-width: 640px) {
       .wrap { width: 94vw; margin: 16px auto; }
-      .footer { flex-direction: column }
+      .footer { flex-direction: column; align-items: stretch; }
       button, a.btn { width: 100% }
     }
   </style>
@@ -187,7 +238,12 @@
   btnPrev.addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays--; render(); } });
   btnNext.addEventListener('click', ()=>{ if(MODE==='daily'){ offsetDays++; render(); } });
   document.getElementById('copy').addEventListener('click', async ()=>{
-    try { await navigator.clipboard.writeText(elPhrase.textContent); const b=this?.event?.target || document.getElementById('copy'); const t=b.textContent; b.textContent='Copiato!'; setTimeout(()=>b.textContent=t,1200); } catch(e){ alert('Impossibile copiare: '+e); }
+    try {
+      await navigator.clipboard.writeText(elPhrase.textContent);
+      const b=this?.event?.target || document.getElementById('copy');
+      const t=b.textContent; b.textContent='Copiato!';
+      setTimeout(()=>b.textContent=t,1200);
+    } catch(e){ alert('Impossibile copiare: '+e); }
   });
 
   init();
