@@ -1,275 +1,129 @@
 [
-  { "text": "Il server è lento perché è pieno." },
-  { "text": "Spegnilo e riaccendilo, fidati." },
+  { "text": "Il server è lento perché è pieno.\n[Ignoto, ?]" },
+  { "text": "Spegnilo e riaccendilo, fidati.\n[Ignoto, ?]" },
+  { "text": "Cliente: Non funzionano le mail verso helpdesk@...\nEdo verifica, non trova nulla, cerca di capire con il cliente dov'è l'errore.\nIl cliente inviava mail alla casella: helpdesck@...\nCliente \"Ma mi hanno fatto loro lo spelling\"\n[Edoardo, 17/09/2025]" },
+  { "text": "Squilla il telefono. Marco risponde felice dicendo: è un ICA, speriamo non abbia un pc di merda.\nSi collega... è un MAC\n[Marco, 22/03/2023]" },
+  { "text": "Fabio prova invio mail da un server alla sua mail... sua mailbox PIENA\n[Fabio, 28/09/2021]" },
+  { "text": "GNOCCHI PANNA E PONNI (invece di gnocchi panna e porri)\n[Ignoto, 17/01/2020]" },
+  { "text": "A detta dei miei colleghi io sarei:\n\"ANTIPATICO A GIORNI ALTERNI\"\n\"PERMALOSO\"\n\"EGOISTA\"\n\"PICIU (Jack)\"\n\"INTRATTABILE\"\nP.S. Gabriele aggiunge: \"Una volta i post-it facevano ridere...\"\n[Ignoto, 12/11/2019]" },
+  { "text": "Fabio accende un pc...\n\"Ci sono già un sacco di cose installate!!\"\n\"pentANO report designer?\"\nLUCA: \"è uno con cinque ani?\"\n[Fabio + Luca, ?]" },
   {
-    "text": "17/09/2025\n\nCliente: Non funzionano le mail verso helpdesk@dominioacaso.it\n\nEdo verifica, non trova nulla, cerca di capire con il cliente dov'è l'errore.\n\nIl cliente inviava mail alla casella: helpdesck@dominioacaso.it\n\nCliente \"Ma mi hanno fatto loro lo spelling\""
+    "text": "Ora, quando non avrò più voglia di fare qualcosa, non dirò più niente\nfarò solo così...\n(e si mette il cappello in testa)\n\nMarco terzultimo giorno di lavoro",
+    "img": "images/Merlo_Tod.jpg",
+    "alt": "Merlo_Tod.jpg",
+    "caption": ""
   },
-  {
-    "text": "22/03/23 ore 17:57 squilla il telefono\n\nMarco risponde felice dicendo: è un ICA\nsperiamo non abbia un pc di merda\n\nSi collega... è un MAC"
-  },
-  {
-    "text": "28/09/21\n\nFabio prova invio mail da un server alla sua mail\n\n...\n\nsua mailbox PIENA"
-  },
-  {
-    "text": "17/01/20 GNOCCHI PANNA E PONNI\n\n(invece di gnocchi panna e porri)"
-  },
-  {
-    "text": "12/11/19 Ignoto: A detta dei miei colleghi io sarei:\n\n\"ANTIPATICO A GIORNI ALTERNI\"\n\"PERMALOSO\"\n\"EGOISTA\"\n\"PICIU (Jack)\"\n\"INTRATTABILE\"\n\nP.S. Gabriele aggiunge: \"Una volta i post-it facevano ridere...\""
-  },
-  {
-    "text": "Fabio accende un pc...\n\n\"Ci sono già un sacco di cose installate!!\"\n\n\"pentANO report designer?\"\n\nLUCA: \"è uno con cinque ani?\""
-  },
-  {
-    "text": "08/11/15 Secondo me i nostri cervelli sono sincronizzati...\n\ncome le donne con le mestruazioni!\n\n       cit. Fabio"
-  },
-  {
-    "text": "Una cliente con Fabio al telefono: \"Sei stato gentilissimo!\"\n\nRisposta di Fabio: \"ESATTO\"\n\n(Primo post-it con Francesco)"
-  },
+  { "text": "Secondo me i nostri cervelli sono sincronizzati... come le donne con le mestruazioni!\n[Fabio, 08/11/2015]" },
+  { "text": "Una cliente con Fabio al telefono: \"Sei stato gentilissimo!\"\nRisposta di Fabio: \"ESATTO\"\n[Fabio + Francesco, ?]" },
+  { "text": "Chat Voismart\n[Ignoto, ?]" },
+  { "text": "Qual è già l'ip del CVS? 192.168.0.182 o 192.168.0.282??\n[Luke, 25/11/2015]" },
+  { "text": "RADIUS GA - GA\nRADIUS BLAH - BLAH\nRADIUS WHAT'S NEW?\nRADIUUUUS\nSOMEONE STILL LOG YOUUUUUU!!!!!!\n[Fabio + Luca, ?]" },
+  { "text": "Neuroni in corto tra \"Apri Pico\" e \"C:\\Pico\"... è uscito un: \"APRI CICO\"\n[Ignoto, 27/04/2016]" },
+  { "text": "Fabio (con estrema disattenzione, vedere data) ha rotto la calamita di Santiago causando in LUKE tristezza e sgomento.\n[Fabio + Luke, 09/2016]" },
+  { "text": "MANGIAMI, MALEDETTO GRASSONE!! <- Collega stronzo\n[Ignoto, ?]" },
   {
     "text": "Chat Voismart",
     "img": "images/pmeda.png",
     "alt": "Chat Voismart",
     "caption": ""
   },
-  {
-    "text": "25/11/15\n\nQual è già l'ip del CVS?\n192.168.0.182 o 192.168.0.282??\n\n                  Luke"
-  },
-  {
-    "text": "RADIUS GA - GA\nRADIUS BLAH - BLAH\n...\nRADIUS WHAT'S NEW?\nRADIUUUUS\nSOMEONE STILL LOG YOUUUUUU!!!!!!\n\n                  Fabio + Luca + Queen"
-  },
-  {
-    "text": "27/04/2016\n\nNeuroni in corto tra \"Apri Pico\" e \"C:\\Pico\"...\nè uscito un: \"APRI CICO\""
-  },
-  {
-    "text": "2016/09/2016 (era già errato nel post-it)\n\nFabio (con estrema disattenzione, vedere data)\nha rotto la calamita di Santiago causando in\nLUKE tristezza e sgomento."
-  },
-  {
-    "text": "MANGIAMI, MALEDETTO GRASSONE!! <- Collega stronzo"
-  },
+  { "text": "Fabio, al tel con una cliente nuova, prima installazione: \"Devi farmi ricollegare, TOPA\"\n[Fabio, 16/11/2018]" },
+  { "text": "Francesco, terza chiamata... \"Mi dici per favore la REGIONE SOCIALE?\"\n[Francesco, ?]" },
+  { "text": "Francesco, in chiamata con un cliente: \"Voi avete l'invio tramite PEC o avete LA TAVOLETTA??\"\n[Francesco, ?]" },
+  { "text": "Gabriele: \"Dov'è già il menù di accensione di Windows??\" (cercava l'esecuzione automatica)\n[Gabriele, 16/09/2019]" },
+  { "text": "\"Come referente tecnico deve sentire GIALUCA LAMONACA\"\n[Gabriele, 09/10/2019]" },
+  { "text": "Luca: \"Come mai hai scritto codice teamviewer ad AlessiaP\"\nFabio: \"Eh, cazzo, il cliente mi stava dicendo il suo teamviewer e nel frattempo mi è comparso il POPUP di PIMPA\"\nLuca e Fabio a piangere per 10 minuti\n[Fabio + Luca, 16/03/2017]" },
+  { "text": "Gabriele: \"Forse ho fatto una puttanata\". In due click ha scoperto la funzione più pericolosa introdotta da VirtualBox 6...\nSi è cancellato tutto il PC più SISTEMI su FILESERVER!!!\n[Gabriele, 11/10/2019]"},
+  { "text": "Fabio: \"premo sempre due stati insieme ultimamente, mi si stanno INTOZZANDO le dita?\"\n[Fabio, ?]" },
+  { "text": "Fabio: \"Sì, certo, girala a helpdesk@dominioacaso.it e asp@dominioacaso.X\"\n[Fabio, 16/03/2017]" },
+  { "text": "MarcoTe: \"EMERGENZA!! STA SUCCEDENDO QUALCOSA DI STRANISSIMO AL PC\". Tolgo il quaderno che schiacciava la barra spaziatrice...\n[MarcoTe, ?]" },
+  { "text": "Fabio, impacciato al telefono: \"Scusa, fatico un po' a confondermi!\"\n[Fabio, ?]" },
+  { "text": "Fabio: \"No se fossi pelato in mezzo con solo i capelli tipo corona attorno mi raserei, che schifo, MASTE\". Nel frattempo passa Pier: \"Ciao!\"\nFabio: \"Ciao...\"\n[Fabio + Pier, ?]" },
+  { "text": "Fabio, parlando del cambio d'ora: \"Ma perché si cambiano le ore??\". Boh, sarà per l'agricoltura\n[Fabio, ?]" },
+  { "text": "Luc in preda alla stanchezza \"Post Monviso\": \"Se avessi le palle sfiderei la sorte aprendo un porno a caso sapendo che non avrei mai il tempo di chiuderlo se entrasse qualcuno\"\n[Luc, 17/10/2017]" },
+  { "text": "\"Anch'io ho passato dei momenti passati\"\n[Fabio, ?]" },
+  { "text": "\"STRUNK\". Fabio: \"Chi cazzo è?\". Fabio: \"Ah, ho sentito un rumore strano, ma ero io col culo\"\n[Fabio, ?]" },
   {
     "text": "Problemi tecnici",
     "img": "images/Zucchero.jpg",
     "alt": "Problemi tecnici",
     "caption": ""
   },    
-  {
-    "text": "16/11/18\n\nFabio, al tel con una cliente nuova, prima installazione:\n\n\"Devi farmi ricollegare, TOPA\""
-  },
+  { "text": "Fabio: \"Sì, il cartone GEM! GEM scritto Genova, Emoly, ...\"\n[Fabio, 14/10/2019]" },
+  { "text": "Gabriele: \"In caso tu non riesca a chiamarci mandaci una mail e noi Ti RICAMIAMO\"\n[Gabriele, 05/11/2019]" },
+  { "text": "Fabio, per il mal di gola: \"Già stasera devo ricordarmi di passare a comprare il vetril\"\n[Fabio, ?]" },
+  { "text": "\"Devi poi sentire l'HelpDesk per fare l'abbinazione\"\n[Luc, ?]" },
+  { "text": "\"Questo è il toner nero? Ah, no, è il VERDE\"\n[Fabio, ?]" },
+  { "text": "Luke: \"Ti è mai capitato di fare la cacca e poi non va giù?\"\n[Luke, 11/2014]" },
+  { "text": "Fabio: \"Mentre dagli altri PC... BALLA BARRA 192.168...\"\n[Fabio, ?]" },
+  { "text": "Fabio, collegato al pc di un cliente: \"Ti vedo tutto nero\". Cliente: \"Va beh che sono africano, ma sono marrone scuro!\"\n[Fabio + Cliente TAOH, ?]" },
+  { "text": "Tipa di postepay: \"Può farmi lo spelling??\" Fabio: \"Sì, certo! Allora: .., COMA, ROMO, TORINO...\"\n[Fabio, ?]" },
+  { "text": "\"L'uomo il Loop perde il pelo, ma non il vizio\"\n[Fabio + Luca, ?]" },
+  { "text": "\"Ho provato un bobcat ... FIGATA ... quando facevamo la casa del mio tipo\"\n[Fabio, ?]" },
+  { "text": "Fabio: \"Io non sono più soddisfatto della mia cacca ... non faccio più la cacca come una volta...\"\n[Fabio, ?]" },
+  { "text": "\"Domani sarei solo come un pesce\"\n[Ignoto, ?]" },
   {
     "text": "",
     "img": "images/POST-IT-001.jpg",
     "alt": "POST-IT-001.jpg",
     "caption": ""
   },
-  {
-    "text": "Francesco, terza chiamata...\n\n\"Mi dici per favore la REGIONE SOCIALE?\""
-  },
-  {
-    "text": "Francesco, in chiamata con un cliente:\n\n\"Voi avete l'invio tramite PEC o avete LA TAVOLETTA??\""
-  },
-  {
-    "text": "16/09/2019 - Gabriele\n\n\"Dov'è già il menù di accensione di Windows??\"\n\nCercava l'esecuzione automatica 🤦🏻‍♂️"
-  },
-  {
-    "text": "09/10/2019 - Gabriele\n\n\"Come referente tecnico deve sentire\nGIALUCA LAMONACA\""
-  },
-  {
-    "text": "16/3/17\n\nLuca: \"Come mai hai scritto codice teamviewer ad AlessiaP\"\n\nFabio: \"Eh, cazzo, il cliente mi stava dicendo il suo teamviewer\n             e nel frattempo mi è comparso il POPUP di PIMPA\"\n\nLuca e Fabio a piangere per 10 minuti"
-  },
-  {
-    "text": "11/10/19 - GABRIELE\n\n\"Forse ho fatto una puttanata\"\n\nIn due click ha scoperto la funziona più pericolosa introdotta\nda VirtualBox 6: Gestore files (che di default si posiziona su /)\nseleziona tutto -> click su \"X\"\n\nSi è cancellato tutto il PC più SISTEMI su FILESERVER!!!\n\nIl tutto il giorno prima della sua prima busta paga"
-  },
-  {
-    "text": "Fabio: \"premo sempre due stati insieme ultimamente\n            mi si stanno INTOZZANDO le dita?\"\n\nNel senso che cantano.... \"TI AAAAAAAMOOOOOO...\""
-  },
-  {
-    "text": "16/03/17 - Fabio\n\n\"Sì, certo, girala a helpdesk@dominioacaso.it e asp@dominioacaso.X\""
-  },
-  {
-    "text": "MarcoTe scende:\n\n\"EMERGENZA!! STA SUCCEDENDO QUALCOSA DI\nSTRANISSIMO AL PC\"\n\nScendo e trovo lui e Martina che indagano preoccupati\n\nMi avvicino, tolgo il quaderno che schiacciava la barra\nspaziatrice e scendo... 🤦🏻‍♂️🤦🏻‍♂️"
-  },
-  {
-    "text": "Fabio, impacciato al telefono:\n\n\"Scusa, fatico un po' a confondermi!\""
-  },
-  {
-    "text": "Fabio sta parlando ad alta voce, mimando il tutto...\n\n\"No se fossi pelato in mezzo con solo i capelli\ntipo corona attorno mi raserei, che schifo, MASTE\"\n\nNel frattempo passa PIER: \"Ciao!\"\n\nFabio: \"Ciao..... \" 😅😐"
-  },
-  {
-    "text": "",
-    "img": "images/POST-IT-002.jpg",
-    "alt": "POST-IT-002.jpg",
-    "caption": ""
-  },
-  {
-    "text": "Fabio, parlando del cambio d'ora\n\n\"Ma perché si cambiano le ore??\"\n\nBoh, sarà per l'agricoltura"
-  },
-  {
-    "text": "17/10/17\n\nLuc in preda alla stanchezza \"Post Monviso\" sta copiando\nventordici tera di roba sul suo pc, diventanto inutilizzabile.\n1 minuto ad aprire Chrome e poi dice:\n\n\"Se avessi le palle sfiderei la sorte aprendo un porno\na caso su Youporn sapendo che non avrei mai il tempo\ndi chiuderlo se entrasse qualcuno\"\n\nChe poi a scriverla manco fa ridere"
-  },
-  {
-    "text": "\"Anch'io ho passato dei momenti passati\"\n\n                                              cit. Fabio"
-  },
-  {
-    "text": "\"STRUNK\"\n\nFabio: \"Chi cazzo è?\"\n...\n...\nFabio: \"Ah, ho sentito un rumore strano,\nma ero io col culo\""
-  },
-  {
-    "text": "14/10/19 - Fabio\n\n\"Sì, il cartone GEM! GEM scritto Genova, Emoly, ...\""
-  },
-  {
-    "text": "5/11/19 - Gabriele\n\n\"In caso tu non riesca a chiamarci mandaci\nuna mail e noi Ti RICAMIAMO\""
-  },
-  {
-    "text": "Fabio, per il mal di gola:\n\n\"Già stasera devo ricordarmi di passare a comprare il vetril\"\n\n... mentre mima il gesto dello spruzzo dal tamtum verde in gola"
-  },
-  {
-    "text": "\"Devi poi sentire l'HelpDesk per fare l'abbinazione\"\n                                                  Luc"
-  },
-  {
-    "text": "\"Questo è il toner nero? Ah, no, è il VERDE\"\n                                                  Fabio"
-  },
-  {
-    "text": "",
-    "img": "images/POST-IT-003.jpg",
-    "alt": "POST-IT-003.jpg",
-    "caption": ""
-  },
-  {
-    "text": "Novembre 2014 - Luke\n\n\"Ti è mai capitato di fare la cacca e poi non va giù?\""
-  },
-  {
-    "text": "Fabio, alle prese con una cartella condivisa cliente:\n\n\"Mentre dagli altri PC... BALLA BARRA 192.168. ....\""
-  },
-  {
-    "text": "Fabio, nel collegarsi al pc di un cliente:\n\n\"Ti vedo tutto nero\"\n\nCliente: \"Va beh che sono africano, ma sono marrone scuro!\"\n\nNome cliente: TAOH"
-  },
-  {
-    "text": "Tipa di postepay al telefono con Fabio:\n\n\"Può farmi lo spelling??\"\n\nFabio: \"Sì, certo! Allora: .., COMA, ROMO, TORINO, ...\""
-  },
-  {
-    "text": "\"L'uomo il Loop perde il pelo, ma non il vizio\"\n                         Fabio + Luca in PIDGIN"
-  },
-  {
-    "text": "\"Ho provato un bobcat ... FIGATA ... quando\nfacevamo la casa del mio tipo\"\n                                    Fabio"
-  },
-  {
-    "text": "SILENZIO IN UFFICIO, poi di punto in bianco, Fabio:\n\n\"Io non sono più soddisfatto della mia cacca ... non faccio più la \ncacca come una volta... non so come mai!!!\""
-  },
-  {
-    "text": "\"Domani sarei solo come un pesce\""
-  },
-  {
-    "text": "\"Ho preso un batterio ad una festa e ora sto prendendo gli antivirus\"\n                                                          Luke"
-  },
-  {
-    "text": "",
-    "img": "images/POST-IT-004.jpg",
-    "alt": "POST-IT-004.jpg",
-    "caption": ""
-  },
-  {
-    "text": "\"64 Bit, in fila per 6 con il resto di 2\"\n                                            Fabio"
-  },
-  {
-    "text": "\"Lo sapevo che Marco scendeva (MarcoTe) perchè...\"\n\"Tempo, comunque le cose vadano lui passa!\"\n                                              Fabio"
-  },
-  {
-    "text": "Una cliente: \"Se lancio OpenVPN mi dice che sta già correndo!\"\n\n(OpenVPN is already running)"
-  },
-  {
-    "text": "\"Serve uno PHP più buono, più migliorato, più spazioso!\nAbiamo corectato dei problemi\"\n                                               Daniel"
-  },
-  {
-    "text": "SL:  \"E' nata Sara (la figlia di Francesca)! Pesa 3,5 e stanno bene\"\nFC: \"Congratulations! Bel nome:)\"\nSL: \"Certo, bellissimo!\"\nFC: \"Beh, auguriamole di diventare anche bella come te!\nSL: \"Sì....\""
-  },
-  {
-    "text": "PRIMO lavoro di fcartolano: formattare un PC\n\nDopo un po' scopro che il nome utente e del pc sono:\n\nSIP-PC\nsip"
-  },
-  {
-    "text": "\"Sul MAC OSX LION non c'è << FILE / STANCA >>\"\n(Dopo che il Mac ha iniziato a parlare da solo!)\n                                                    Fabio"
-  },
-  {
-    "text": "Fabio con una cliente: \"LUFTHANTA\""
-  },
-  {
-    "text": "Luca: \"NOOOOOOOOOOOOOOOO\"\nFabio: \"Ma va, stai solo facendo Pinta\""
-  },
-  {
-    "text": "Martedì 10 Aprile 2012 (dopo Pasquetta)\n\n\"Oggi la gente sarà in ferie, non è martedì' grasso?\"\n                                                   Fabio"
-  },
-  {
-    "text": "Fabio è riuscito a scrivermi un indirizzo IP pubblico al\nposto di un numero di telefono:\n\n212 77 31 235 chiamare Marco Trot"
-  },
-  {
-    "text": "07/2011 TOP STORY\n\nFabio compone numero assistenza tecnica IBM\n800820094 senza lo 0 poi passa la chiamata a TARZAN\n\n... RISULTATO?? ...\n\n40 minuti di attesa all 800 del centralino SIAP, cioè l'attesa!! 🤣😂🤣😂"
-  },
-  {
-    "text": "\"C'è MICROSOFT EZZENZIAL!!\"\n                                 Fabio al tel con un cliente"
-  },
-  {
-    "text": "Non ho CAPICIO!\n... non c'è RINONIMA ...\n... vai sul DESKOP ...\n\n                             Fabio"
-  },
-    {
-    "text": "Ora, quando non avrò più voglia di fare qualcosa, non dirò più niente\nfarò solo così...\n(e si mette il cappello in testa)\n\nMarco terzultimo giorno di lavoro",
-    "img": "images/Merlo_Tod.jpg",
-    "alt": "Merlo_Tod.jpg",
-    "caption": ""
-  },
-  {
-    "text": "\"MIIII ... hai visto il video della BAGUTTI contro la BMW M3?\n TANNNNTA ROOOOBBA!\"\n\n                                       Ale"
-  },
-  {
-    "text": "Mauri scende le scale verso il caffè, Alessia rientra, lo vede:\n\n\"AHHH! Pensavo fosse la mia ombra\"\nE scappa spaventata"
-  },
-  {
-    "text": "\"A tua discreta soggezione ... \"\n(al posto di \"A tua discrezione\")\n\n                                       Mic"
-  },
-  {
-    "text": "Dopo un discorso di un'ora\n\n\"Sono contento che abbiamo CIRCONCISO il problema\"\n                                                Mic al telefono con Cinzia"
-  },
-  {
-    "text": "La quarta dimensione (4D) sarebbe il \"VENTO E LO SPUTO\"\n                                                         Mic (ultima frase in SIAP)"
-  },
-  {
-    "text": "\"Esiste una release \"CANDIDAYD\"\n                                                Michel"
-  },
-  {
-    "text": "\"Commenti solo l'echo ... E l'IP lo lasci ai POSTUMI??\"\n                                                         Michel"
-  },
+  { "text": "\"Ho preso un batterio ad una festa e ora sto prendendo gli antivirus\"\n[Luke, ?]" },
+  { "text": "\"64 Bit, in fila per 6 con il resto di 2\"\n[Fabio, ?]" },
+  { "text": "Fabio: \"Lo sapevo che Marco scendeva (MarcoTe) perchè... Tempo, comunque le cose vadano lui passa!\"\n[Fabio, ?]" },
+  { "text": "Una cliente: \"Se lancio OpenVPN mi dice che sta già correndo!\"\n[Ignoto, ?]" },
+  { "text": "\"Serve uno PHP più buono, più migliorato, più spazioso! Abiamo corectato dei problemi\"\n[Daniel, ?]" },
+  { "text": "SL: \"E' nata Sara (la figlia di Francesca)! Pesa 3,5 e stanno bene\" FC: \"Congratulations! Bel nome:)\"...\n[SL + FC, ?]" },
+  { "text": "Primo lavoro di fcartolano: formattare un PC. Nome utente e PC: SIP-PC / sip\n[fcartolano, ?]" },
+  { "text": "\"Sul MAC OSX LION non c'è << FILE / STANCA >>\" (Dopo che il Mac ha iniziato a parlare da solo!)\n[Fabio, ?]" },
   {
     "text": "",
     "img": "images/POST-IT-005.jpg",
     "alt": "POST-IT-005.jpg",
     "caption": ""
   },
+  { "text": "Fabio con una cliente: \"LUFTHANTA\"\n[Fabio, ?]" },
+  { "text": "Luca: \"NOOOOOOOOOOOOOOOO\" Fabio: \"Ma va, stai solo facendo Pinta\"\n[Luca + Fabio, ?]" },
+  { "text": "\"Oggi la gente sarà in ferie, non è martedì grasso?\"\n[Fabio, 10/04/2012]" },
+  { "text": "Fabio scrive un IP pubblico al posto di un numero di telefono: 212 77 31 235 chiamare Marco Trot\n[Fabio, ?]" },
+  { "text": "Fabio compone numero assistenza IBM senza lo 0, poi passa la chiamata a TARZAN. Risultato: 40 minuti di attesa al centralino.\n[Fabio, 07/2011]" },
+  { "text": "\"C'è MICROSOFT EZZENZIAL!!\"\n[Fabio, ?]" }, 
   {
-    "text": "\"L'assemblazione\" cit. Michel"
+    "text": "",
+    "img": "images/POST-IT-002.jpg",
+    "alt": "POST-IT-002.jpg",
+    "caption": ""
   },
+  { "text": "Non ho CAPICIO! Non c'è RINONIMA... vai sul DESKOP...\n[Fabio, ?]" },
+  { "text": "Marco: \"Ora, quando non avrò più voglia di fare qualcosa, non dirò più niente, farò solo così...\" (e si mette il cappello in testa)\n[Marco, ?]" },
+  { "text": "\"MIIII ... hai visto il video della BAGUTTI contro la BMW M3? TANNNNTA ROOOOBBA!\"\n[Ale, ?]" },
+  { "text": "Mauri scende le scale verso il caffè, Alessia rientra, lo vede: \"AHHH! Pensavo fosse la mia ombra\"\n[Mauri + Alessia, ?]" },
+  { "text": "\"A tua discreta soggezione ...\" (al posto di \"A tua discrezione\")\n[Mic, ?]" },
+  { "text": "Dopo un discorso di un'ora: \"Sono contento che abbiamo CIRCONCISO il problema\"\n[Mic, ?]" },
+  { "text": "La quarta dimensione (4D) sarebbe il \"VENTO E LO SPUTO\"\n[Mic, ?]" },
+  { "text": "\"Esiste una release CANDIDAYD\"\n[Michel, ?]" },
+  { "text": "\"Commenti solo l'echo ... E l'IP lo lasci ai POSTUMI??\"\n[Michel, ?]" },
   {
-    "text": "\"Runtime ENVROINMENT, giust?\" cit. Michel"
+    "text": "",
+    "img": "images/POST-IT-004.jpg",
+    "alt": "POST-IT-004.jpg",
+    "caption": ""
   },
+  { "text": "\"L'assemblazione\"\n[Michel, ?]" },
+  { "text": "\"Runtime ENVROINMENT, giust?\"\n[Michel, ?]" },
+  { "text": "\"Non te la riesco a dare per il 20 di Marzo ... Commercialmente mi chiedi una cosa...\"\n[DB, ?]" },
+  { "text": "\"Se ce l'hai piccolo lo vedi bene\"\n[Vale, ?]" },
+  { "text": "\"Rotante ... rotevole!!\"\n[Mic, ?]" },
+  { "text": "\"Cosa dice un server X ad un altro server X?? Here comes the SAN, du du du duuuuu...\"\n[Fabio, ?]" },
+  { "text": "Fabio, al cliente al telefono: \"Sto disinstallando il probLema...\"\n[Fabio, ?]" },
+  { "text": "Fabio al telefono con un cliente: \"Qui tu EVIRA lo hai chiuso??\" (voleva dire AVIRA)\n[Fabio, ?]" },
+  { "text": "\"Sono arrivato al livello 84 di Diablo III\". Peccato che i livelli siano solo 60!!\n[Franky, ?]" },
+  { "text": "Fabio: \"AD OGNUNO MANCA QUELLO CHE NON HA\"\n[Fabio, 31/10/2019]" }
   {
-    "text": "\"Non te la riesco a dare per il 20 di Marzo ...\n Commercialmente mi chiedi una cosa... \"\n                                 DB al telefono con Corrado"
-  },
-  {
-    "text": "\"Se ce l'hai piccolo lo vedi bene\" cit. Vale"
-  },
-  {
-    "text": "\"Rotante ... rotevole!!\" cit. Mic"
-  },
-  {
-    "text": "\"Cosa dice un server X ad un altro server X ??\"\n\"Here comes the SAN, du du du duuuuu...\"\n                                    Fabio"
-  },
-  {
-    "text": "Fabio, al cliente al telefono:\n\n\"Sto disinstallando il probLema ...\""
-  },
-  {
-    "text": "Fabio al telefono con un altro cliente:\n\n\"Qui tu EVIRA lo hai chiuso??\"\n\n(Voleva dire AVIRA antivirus)"
-  },
-  {
-    "text": "\"Sono arrivato al livello 84 di Diablo III\"\n                                      Franky\n\nPeccato che i livello siano SOLO 60!!"
-  },
-  {
-    "text": "31/10/19 ore 18:10\n\nDopo una giornata intensa si sta parlando del più\ne del meno e Fabio, con nonchalance, se ne esce con:\n\n\"AD OGNUNO MANCA QUELLO CHE NON HA\""
+    "text": "",
+    "img": "images/POST-IT-003.jpg",
+    "alt": "POST-IT-003.jpg",
+    "caption": ""
   },
   { "text": "Non si può avere la botte ubriaca e la moglie piena\n[Bart, 02/05/2020]" },
   { "text": "Sembri ATL+ quando faccio una chiamata e risponde dopo 8 secondi.\nCon XML sminchiato.\nE pure il soap.\n[Mattia a Claudio, 06/08/2020]" },
@@ -326,5 +180,206 @@
   { "text": "Viva la feature\n[Silvia, 22/09/2021]" },
   { "text": "Silvia, ma è giusto che il crea società crei la società?\n[Daniele, 24/09/2021]" },
   { "text": "si sto girando in tondo cerando di mordermi la coda\no il cobra\ncon rispetto\n[Daniele, 28/09/2021]" },
-  { "text": "A: \"Chi è che mi dinga?\"\nL: \"Mi dinga pure!\"\n[Alberto + Luca, 31/08/2021]" }
+  { "text": "Se Claudio fosse la materia, io sarei l'antimateria.\nE cosa fai quando devi spiegare la fisica e il concetto di materia non basta?\nUsi l'antimateria.\nIn questo momento Claudio è Websales e Websales è Claudio. Sono tutt'uno.\nIo sono l'antiWebsales.\nSono come l'amante che vai a trovare dopo che il tuo ragazzo o la tua ragazza ti ha abbandonato o trattato male.\n[Alberto, 28/09/2021]" },
+  { "text": "M: \"A furia di mangiare panini, mangiare panini dopo un po' ti stufi e vuoi provare altro.\nAlberto, ti è mai capitato di mangiare troppi panini?\"\nA: \"Si può dire che io muoio di fame.\"\n[Marco + Alberto, 30/09/2021]" },
+  { "text": "(Con tono di Forza Italia)\n\"Meno male che Claudio c'è\"\n[Mattia, 30/09/2021]" },
+  { "text": "CC: \"Mi puoi dare un hint su una struttura di oggetto?\"\nA: \"4.\"\nCC: \"Non va bene.\"\nA: \"Perché? È un int.\"\nCC: \"Mi serve un Hint con l'H.\"\nCB: \"4H.\"\n[Claudio + Alberto + Carlo, 04/10/2021]" },
+  { "text": "Avete capito perché si chiama dinamico? Perché fa rima con magico.\n[Alberto, 05/10/2021]" },
+  { "text": "A: \"Tutto quello che committi finisce su head.\"\nC: \"Su Ed Sheeran?\"\n*lancia una bomba fumogena e scappa*\n[Alberto + Claudio, 05/10/2021]" },
+  { "text": "A: \"Faccio come Laura. Vado in pausa.\"\nC: \"Quando chiedono di te diciamo che Alberto è come Laura. Non c'è.\"\n[Alberto + Claudio, 06/10/2021]" },
+  { "text": "Tu non hai mai fatto il clistere di caffè?\n[Marco, 06/10/2021]" },
+  { "text": "Grazie Alberto\n[Marco, giorno indefinito di ottobre 2021]" },
+  { "text": "Bisogna prenderli dal pannella di amministrazione\n[Alessio, 08/10/2021]" },
+  { "text": "Silvia, tiri membri ancora di Giacomo Leop-hard-i\n[Franco, 08/10/2021]" },
+  { "text": "Maddalena SmokeCocks\n[Franco + Alessio, 08/10/2021]" },
+  { "text": "Ogni mio sforzo di rendere dinamico il Dinamico è vano.\n[Alberto, 08/10/2021]" },
+  { "text": "Ti chiedo solo quale server serve e ti mando il server che serve.\n[Marco, 13/10/2021]" },
+  { "text": "Pensieri maligni.\n[Marco, 14/10/2021]" },
+  { "text": "Magari la mia testa vuota fa da cassa di risonanza\n[Claudio, 14/10/2021]" },
+  { "text": "A: \"Quando prendo le cose in mano e funzionano\"\nS: \"Con rispetto.\"\n[Alberto + Silvia, 14/10/2021]" },
+  { "text": "Qual è il popolo che usa il piffero?\n[Carlo, 21/10/2021]" },
+  { "text": "Ah, io ho quei pochi centimetri che mi salvano\n[Marco, 21/10/2021]" },
+  { "text": "A: \"Alla pussy non si dice mai di no\"\nS: \"Tranne quando c'è quella da pelare\"\n[Alberto + Silvia, 21/10/2021]" },
+  { "text": "Siamo un'azienda agricola informatica, se non c'è odore di drugia non si può\n[Marco, 21/10/2021]" },
+  { "text": "Per fortuna che sono venuto stamattina (con rispetto)\n[Carlo, 23/10/2021]" },
+  { "text": "Quando dico la parola in codice BULLONE significa che puoi agire.\n[Dario, 26/10/2021]" },
+  { "text": "A: \"Questa gestione è...\"\nC: \"Articolata.\"\nA: \"No, perché se no ci sarebbe scritto il, lo, la, i, gli, le\"\n[Alberto + Claudio, 27/10/2021]" },
+  { "text": "E tutti i PayNode vengono al pettine\n[Claudio, 28/10/2021]" },
+  { "text": "Come si dice, le bestie grame non prendono mai le malattie\n[Marco, 28/10/2021]" },
+  { "text": "M: \"Gianluigi mi ha dato un lavoro di merda.\"\nD: \"Strano.\"\n[Marco + Dario, 28/10/2021]" },
+  { "text": "C: \"Che differenza c'è tra una pratica contabilizzata e una confermata?\"\nA: \"Che una non è contabilizzata.\"\nC: \"Ah.\"\n[Carlo + Alberto, 28/10/2021]" },
+  { "text": "Drugia sarebbe merda?\n[Giuseppe, 29/10/2021]" },
+  { "text": "Se la montagna non va da Maometto, io rutto e sposto la montagna\n[Giuseppe, 02/11/2021]" },
+  { "text": "Probabilmente  probabile\n[Alberto, 02/11/2021]" },
+  { "text": "The pene is on the table\n[Giuseppe, 04/11/2021]" },
+  { "text": "Non siamo una setta. Siamo una otta.\n[Federica, 04/11/2021]" },
+  { "text": "Pls stop sono in call\n[Claudio, 04/11/2021]" },
+  { "text": "Perché non usa la lingua questa bagassa?\n[Marco, 09/11/2021]" },
+  { "text": "Prendo due picioni (con una c) con la mia fava\n[Dario, 10/11/2021]" },
+  { "text": "Mi ha detto 'fammelo vedere' e io le ho detto 'stai calma'\n[Dario, 10/11/2021]" },
+  { "text": "Perché il Cobra non è un serpente, ma un veggente.\n[Claudio, 10/11/2021]" },
+  { "text": "WebSalse\n[Claudio, 10/11/2021]" },
+  { "text": "Non pensavo che S fosse siciliano.\nSapevo che era del centro Italia, ma non siciliano\n[Carlo, 15/11/2021]" },
+  { "text": "Cos'hanno in comune il Dinamico e la cella di una prigione?\nIn entrambi i casi rimani inculato quando ti cade il soap.\n[Alberto, 17/11/2021]" },
+  { "text": "Parli del diavolo e esce Daniele\n[Marco, 18/11/2021]" },
+  { "text": "Scusate, se mi posso permettere...\n[Claudio, 23/11/2021]" },
+  { "text": "Azienda agricola informatica? Con il Mais siamo già a metà strada.\n[Carlo , 25/11/2021]" },
+  { "text": "C: \"Secondo te\"\nA: \"Primo me\"\n[Claudio + Alberto, 01/12/2021]" },
+  { "text": "È quello che sto facendo fare a Marius\n[Alberto, 01/12/2021]" },
+  { "text": "Pilastri di PHP. Un libro di Franco.\n[Alberto, 02/12/2021]" },
+  { "text": "Mancava una S. Tra figa e sfiga c'è una bella differenza.\n[Fiorenzo, 03/12/2021]" },
+  { "text": "Ambasciator non portapenne.\n[Dario, 15/12/2021]" },
+  { "text": "C: \"Questa mascherina è di Trenitalia.\"\nD: \"Ecco perché la metti sempre in ritardo.\"\n[Carlo + Dario, 20/12/2021]" },
+  { "text": "A: \"Buscalo\"\nC: \"Ronchialo\"\nS: \"Verzuolalo\"\nS: \"Tarantascalo\"\n[Alberto + Claudio + Silvia, 13/12/2021]" },
+  { "text": "B 4 Badile\nB 4 Barella\nB 4 Belandi\n[Alberto, 27/01/2022]" },
+  { "text": "Più che entrare nella tana del bianconiglio è tutta la tana che è entrata dentro di te.\n[Giuseppe, 27/01/2022]" },
+  { "text": "F: \"B 4 Break?\"\nA: \"B 4 Boia de sì de\"\n[Federica + Alberto, 01/02/2022]" },
+  { "text": "A: \"Cavolo!\"\nC: \"Dimmi.\"\n[Alberto + Carlo, 01/02/2022]" },
+  { "text": "Io metto il pene avanti.\n[Dario, 01/02/2022]" },
+  { "text": "Fast and Fossano\n[Claudio, 03/02/2022]" },
+  { "text": "Guarda che quelli che c'hanno la morosa figa sono i più cupiu di tutti\n[Marco, 07/02/2022]" },
+  { "text": "Disse il quinto figlio propriamente voluto.\n[Carlo, 10/02/2022]" },
+  { "text": "S: \"Paperella Patty.\"\nC: \"Perché quando le parli ci scendi a patty.\"\n[Silvia + Claudio, 15/02/2022]" },
+  { "text": "*Maneggiando un rotolo di carta comicamente grande*\n\"Pensa che buco del culo deve avere quello che compra questo rotolo di carta igienica\"\n[Dario, 15/02/2022]" },
+  { "text": "Servo o servo tipo Carlo?\n[Dario, 22/02/2022]" },
+  { "text": "Pisello palindromo\n[Marco, 22/02/2022]" },
+  { "text": "Perché gestiamo gli infant e non i fetus?\n[Alberto, 24/02/2022]" },
+  { "text": "Ricordati di non fare mai i conti senza l'host.\n[Dario, 03/03/2022]" },
+  { "text": "Oh porca cagna\n[Carlo, 04/03/2022]" },
+  { "text": "Devo creare la linea su scheda diretta\n[Claudio, 15/03/2022]" },
+  { "text": "Converse All Star\n[Marco, 22/03/2022]" },
+  { "text": "Prendiamo tanti picioni (con una c) con una fava del Frenky\n[Dario, 23/03/2022]" },
+  { "text": "M: \"Ha fatto una cagata pazzesca.\"\nC: \"Una Potëmkin?\"\n[Marco + Claudio, 06/04/2022]" },
+  { "text": "M: \"Sto scrivendo un libro. Vita di Alberto. Un musicista mancato.\"\nA: \"Volevo suonare la tastiera. Ora suono la tastiera del computer.\"\n[Marco + Alberto, 13/04/2022]" },
+  { "text": "Sei castrato friendly?\n[Silvia, 13/04/2022]" },
+  { "text": "Ma che kaiser Franz\n[Marco, 19/04/2022]" },
+  { "text": "Indirizzo: Piazza la Bomba e Scappa\n[Dario, 29/04/2022]" },
+  { "text": "via Egalitè Fraternitè sei un Betè\n[Dario, 29/04/2022]" },
+  { "text": "Nuova scheda su Linea Diretta: Per favore correggere il margin-left del cartello in bagno\n[Marco, 05/05/2022]" },
+  { "text": "Licenziato per uso improprio di Linea Diretta\n[Marco, 05/05/2022]" },
+  { "text": "Ma a me che me ne footer\n[Dario, 13/05/2022]" },
+  { "text": "D: \"Dei tizi sono arrivati in sala riunioni con un cane.\"\nA: \"Vogliono fare il pagamento con Fido.\"\n[Dario + Alberto, 13/05/2022]" },
+  { "text": "La pubertà. Quando ti piaceva il pube.\n[Marco, 18/05/2022]" },
+  { "text": "Ognuno si prende le sue response con abilità.\n[Dario, 19/05/2022]" },
+  { "text": "sei utile quanto un lecca lecca al gusto di merda\n[Dario citando Dodgeball palle al balzo, 03/06/2022]" },
+  { "text": "Che buono l'odore degli automatismi a fine giornata.\n[Claudio, 26/05/2022]" },
+  { "text": "Quando si va al Cit ma Bel non senti cosa dice la barista, senti solo tette tette tette tette\n[Mattia, 03/06/2022]" },
+  { "text": "A: \"Dario, ti facevo troppo vecchio per andare al pride\"\nM: \"Ma vecchio dentro o vecchio dietro?\"\n[Alberto + Marco, 06/06/2022]" },
+  { "text": "L'anaia\n[Dario, 06/06/2022]" },
+  { "text": "La lingua è quella rumena e non la pronuncerò qui.\nNella lingua corrente si dice \"una botilia per domarli tutti, una botilia per trovarli, una botilia per ghermirli e nell'oscurità rubare portafolio\"\n[Dario, 17/06/2022]" },
+  { "text": "A: \"Dove te lo metto?\"\nM: \"Prima vai dove c'è esperienza e poi dove c'è gioventù\"\n[Alberto + Mattia parlando di, 20/06/2022]" },
+  { "text": "Ma allora mangia un pollo.\n[Omkar parlando di vegani, 27/06/2022]" },
+  { "text": "Nel mio immagiDario\n[Claudio, 29/06/2022]" },
+  { "text": "Sembra facile la vita di un cavallo, ma dipende tutto da come ti pony.\n[Dario, 29/06/2022]" },
+  { "text": "Non lasciare un cavallo su un ponte. Cavalcavia.\n[Claudio, 29/06/2022]" },
+  { "text": "Ho cagato a spruzzo così forte che il vento s'è portato la mia merda\n[Giuseppe, 30/06/2022]" },
+  { "text": "Brutto Bastianich\n[Marco, 30/06/2022]" },
+  { "text": "D: \"Alla patata non si dice mai di no.\"\nS: \"Se è finta poi ancora meglio\"\n[Daniele + Silvia, 01/07/2022]" },
+  { "text": "L'ho vista di là! Forse mi sono confuso ed era solo la sedia.\n[Claudio, 04/07/2022]" },
+  { "text": "Mi sono asciutto.\n[Claudio, 04/07/2022]" },
+  { "text": "Ricordati che la mattina quando ti gratti le palle e ne trovi quattro, il nemico è alle spalle.\n[Franco, 05/07/2022]" },
+  { "text": "Un ciulodromo.\n[Marco, 25/07/2022]" },
+  { "text": "Ah allora magari è il mio Google che dice \"Ah, ma vuoi andare a vedere un po' di figa?\"\n[Marco, 25/07/2022]" },
+  { "text": "Se rispondi di no, allora anziché chiamarti Silvia ti chiamerò\n...\n...\n...\nNolvia.\n[Dario, 26/07/2022]" },
+  { "text": "qual è il colmo per Dario e Marco? Vivere a Dogliani\n[Marco & Silvia, 28/07/2022]" },
+  { "text": "Le buste paga sono un po' come i nudes.\nA qualcuno non importa se vengono condivisi, a qualcun altro sì.\nPerò se stai mandando a qualcuno i nudes di qualcun altro non va bene.\n[Alberto, 28/07/2022]" },
+  { "text": "Loro sono... Discriminatroie\n[Giuseppe, 28/07/2022]" },
+  { "text": "Questa roba qui è come la cartavetro per andare a cagare.\n[Bartolomeo Nicolotti, 29/07/2022]" },
+  { "text": "B 4 Bidella\n[Alberto, 04/08/2022]" },
+  { "text": "Tutte quelle che ho in pancia io sono merdoni\n[Daniele, 09/08/2022]" },
+  { "text": "Se il dinamico avesse gli oggetti...\nSe li ficcherebbe nel culo.\n[Alberto, 10/08/2022]" },
+  { "text": "Sei celto? Disse il cinese.\n[Silvia, 10/08/2022]" },
+  { "text": "Io Caliba.\n[Claudio, 10/08/2022]" },
+  { "text": "Usavo la birra per lavarmi la faccia\n[Enrico, 12/08/2022]" },
+  { "text": "...Un'iniziativa per pulire le strade di Milano e c'era #PULISCIMILANO grosso come una casa\n[Daniele, 12/08/2022]" },
+  { "text": "Linea capretta\n[Dario, 24/08/2022]" },
+  { "text": "Stendiamo un pielo vetoso\n[Dario, 26/08/2022]" },
+  { "text": "S: \"Tirocinio, chissà cosa faranno\"\nA: *Procede a prendere la foto di un cigno su Google Immagini e lanciare il telefono*\n[Silvia + Alberto, 30/08/2022]" },
+  { "text": "La Polonia non è in Germania!\n[Alberto, 05/09/2022]" },
+  { "text": "Poca aria, molta aria, arenaria, salti in aria\n[Dario, 07/09/2022 16:25]" },
+  { "text": "DB stava cristonando con jack su dei RID bancari.. e io ho fatto notare che RID bene chi RID ultimo\n[Dario, 22/09/2022 16:34]" },
+  { "text": "Vado a dire a Mario \"Cerca Roma\" e lui capisce \"toma\"\n[Gianluigi, 06/10/2022 12:25]" },
+  { "text": "grattazio pallorum e parto\n[Gianluigi, 18/10/2022 09:06]" },
+  { "text": "Cago Verde Time\n[Alberto, 08/11/2022 14:07]" },
+  { "text": "Caro Marco ti schifo\n[Dario, 10/11/2022 15:27]" },
+  { "text": "Zio flauto\n[Dario, 14/11/2022 11:12]" },
+  { "text": "Scheda vecchia fa buon bug\n[Claudio, 30/11/2022 12:06]" },
+  { "text": "C: \"Ma io non bevo ragazzi!\"\nM: \"Ma cosa dici?\"\n[Claudio + Marco, 30/11/2022 12:06]" },
+  { "text": "Io non vorrei solo svegliare l'Antonio che dorme\n[Marco, 02/12/2022 14:11]" },
+  { "text": "Alla fine il sesso povero è 150% meglio del sesso ricco\n[Alberto, 07/12/2022]" },
+  { "text": "Very Important Pippe\n[Alberto, 12/12/2022]" },
+  { "text": "È un altro ciulacchiare\n[Marco, 15/12/2022]" },
+  { "text": "Questa richiesta è da preventivare\nparla chiaro\nSignifica \"scucia li sordi\" detto in modo più carino\n[Alberto, 16/12/2022]" },
+  { "text": "Pieranthony detto allotment\n[Dario, 22/12/2022]" },
+  { "text": "Forca sultana!\n[Dario, 04/01/2023]" },
+  { "text": "E pussy muove\n[Alberto, 04/01/2023]" },
+  { "text": "F: \"Devi rispondere con le carte bianche alle carte nere.\"\nG: \"E non è razzismo.\"\n[Federica Lamastra + Giuseppe, 05/06/2023]" },
+  { "text": "M: com'è partito il lavoro?\nC: da schifo\n[Marco e Claudio, 10/01/23 h09:33]" },
+  { "text": "...Com'è giusto che sia, siamo nel 2022!\n[Claudio, 10/01/2023 16:12]" },
+  { "text": "Praticamente ero un vulcano di vomito.\n[Giuseppe, 13/01/2023 12:11]" },
+  { "text": "Sei il migliore dell'acquario.\nQuando non c'è nessun altro.\nCompresa la signora delle pulizie.\n[Dario, 30/01/2023 18:10]" },
+  { "text": "Ci metto il pene sul fuoco\n[Luca, 01/02/2023 17:23]" },
+  { "text": "Federcia\n[Daniele, 17/02/2023 11:13]" },
+  { "text": "Yes può essere sia yes che no\n[Voce femminile ignota provveniente dall'open space, 17/02/2023 16:16]" },
+  { "text": "Sono Kseniafobo\n[Anonimo, 23/02/2023 09:13]" },
+  { "text": "E abbiamo invertito sto grande cazzoooo\n[Marco, 23/02/2023 14:44]" },
+  { "text": "Quanto mi rapinano da 1 a Napoli?\n[Dario, 24/02/2023 11:38]" },
+  { "text": "Per aspettare serve tempo\n[Enrico, 24/02/2023 16:15]" },
+  { "text": "È un ciulare successivo\n[Marco, 28/02/2023 13:00]" },
+  { "text": "Ha tre figli ed è più magra di me. Come cazzo è possibile?\n[Marco, 03/03/2023 17:15]" },
+  { "text": "Signor giudice vorrei far mettere a verbale che il mio cliente non ha abbandonato ma è stato trasferito contro la sua volontà. Ha subito un TSO - Trattamento Software Obbligatorio\n[Daniele, 08/03/2023 15:51]" },
+  { "text": "Il caro vecchio Lorenz-fuoridaicogli-oni mi dice: \n[Dario, 13/03/2023 17:17]" },
+  { "text": "C'è stata una sporchezza\n[Omkar, 21/03/2023 12:17]" },
+  { "text": "CRM: Culo Rinascimentale Mozzafiato\n[Claudio, 21/03/2023 12:23]" },
+  { "text": "Ponzi Ponzi schema Ponz\n[Giuseppe, 21/03/2023 14:00]" },
+  { "text": "Un paletto di frassino, ma non da infilare nel cuore\n[Gianluigi, 21/03/2023 17:42]" },
+  { "text": "Vous Allez a fancül\n[Gianluigi, 21/03/2023 17:47]" },
+  { "text": "Di cosa ha bisogno 'sta puttana? Ha bisogno di tre cazzate.\n[Marco, 28/03/2023 13:00]" },
+  { "text": "C: \"Sai cos'è il maialino di Natale?\"\nA: \"Il porco Gesù?\"\n[Alberto + Claudio, 28/03/2023 16:28]" },
+  { "text": "C: \"Lecca le mie pene\"\n[Marco, 31/03/2023 10:07]" },
+  { "text": "Roitolandoversosud\n[Alberto, 14/04/2023 10:07]" },
+  { "text": "B4Bioparco\n[Giuseppe, 28/04/2023 16:15]" },
+  { "text": "Viva la config\n[Dario, 28/04/2023 17:13]" },
+  { "text": "se uno é stupido non può rendersi conto di essere stupido, quindi non può essere stupido se sa di essere stupido\n[Umberto, 04/05/2023 12:45]" },
+  { "text": "Frenky, mi aiuti a fare una JOINT?\n[Dario, 04/05/2023 16:50]" },
+  { "text": "Non poco sommario. Sommario e sommaria.\n[Marco, 05/05/2023 09:10]" },
+  { "text": "I controlli che bloccano cosa fanno? Ti bloccano.\n[Marco, 11/05/2023 14:16]" },
+  { "text": "Comunque il contrario di Microsoft Office rimane Macrohard Onfire\n[Umberto, 17/05/2023 14:41]" },
+  { "text": "Il dinamico è a posto.\n[Omkar, 27/06/2023 10:58]" },
+  { "text": "Ed è vuoto come il culo di un bambino.\n[Marco, 28/07/2023]" },
+  { "text": "Coglione viaggiatore\n[Marco, 03/08/2023 11:13]" },
+  { "text": "Tu lo sai che un secondo prima di morire sei vivo?\n[Giacomo, giorno indefinito di inizio Agosto 2023 (mi dicono il 7 o l'8)]" },
+  { "text": "L'appetito vien augurando buon appetito.\n[Alberto, 28/09/2023]" },
+  { "text": "Scorreggia di Venaria\n[Claudio, 28/09/2023]" },
+  { "text": "Il caffè di non si beve durante il TTG\n[Marco, 11/10/2023 12:15]" },
+  { "text": "Maggiorazione fighe pelose\n[Marco, 16/10/2023 14:46]" },
+  { "text": "Sadomasticamente\n[Marco, 19/10/2023 11:13]" },
+  { "text": "A tirarlo su solo voi donne siete brave\n[Giacomo, 19/10/2023 16:22]" },
+  { "text": "Non so se ho preso un abbaglio o un Aldo Baglio\n[Luca, 13/11/2023 17:27]" },
+  { "text": "Inutile come il culo del bambino\n[Marco, 14/12/2023 12:53]" },
+  { "text": "Il bellavista è un gergo per dire lo sfintere?\n[Claudio, 18/12/2023 17:55]" },
+  { "text": "Il señor Pietro lascerà il senior. Alberto rispose: Questa me la segnor.\n[Enrico, 29/12/2023 17:23]" },
+  { "text": "A livello di prosciutto...\n[Marco, 06/02/2024 10:54]" },
+  { "text": "È un pulsante, ma mica pulsa.\n[Claudio, 06/02/2024 15:48]" },
+  { "text": "Quando invece devo andare a ciulare a Cuba e prendo il supplemento baldracca...\n[Gianluigi, 20/02/2024 14:18]" },
+  { "text": "Se potessimo cagare dal cervello, lo farei.\n[Alberto, 27/02/2024 17:04]" },
+  { "text": "Quando fai la cacca e hai lo stomaco libero\n[Marco, 28/02/2024 09:40]" },
+  { "text": "Possono essere anche versa-vice\n[Gianluigi, 28/02/2024 11:44]" },
+  { "text": "Ma n**** è bannabile?\n[Claudio, 28/02/2024 15:32]" },
+  { "text": "Ha sentito profumo di fig... Di soldi... Di f... Insomma, per lui avevano lo stesso odore\n[Dario, 08/03/2024 09:12]" },
+  { "text": "Facciamo il kamasiap\n[Pietro, 15/03/2024 12:01]" },
+  { "text": "Perché parlare con gli amici quando puoi giocare a freccette?\n[Alberto, 25/03/2024 14:08]" },
+  { "text": "Perché, voi avete amici?\n[Pietro, 25/03/2024 14:08]" },
+  { "text": "Punizione equina\n[Enrico, 28/03/2024 16:50]" },
+  { "text": "A: \"Scheda su linea diretta: Websales nitrisce\"\nE: \"Sono stato disarcionato da Websales\"\n[Enrico + Alberto, 28/03/2024 17:19]" },
+  { "text": "Chi troppo vuole null string\n[Enrico, 29/03/2024 09:49]" },
+  { "text": "Il lavoro rende liberali.\n[Enrico, 29/03/2024 09:58]" },
+  { "text": "Meglio tardi che presto\n[Enrico, 12/04/2024 16:57]" },
+  { "text": "Chi va piano è lento\n[Enrico quando andava alle elementari]" },
+  { "text": "È da pisellini pagare da bere ai compleanni\n[Marco, 07/05/2024 11:43]" },
+  { "text": "Non mi va di fare il segretario delle puttanate\n[Marco, 15/05/2024 14:18]" },
+  { "text": "Ti tiro una scopettata nell'uccellino\n[Marco, 16/05/2024 14:29]" },
+  { "text": "Fallo diventare grosso\n[Alberto, 11/06/2024 17:30]" },
+  { "text": "Loro hanno un problema perchè diciamo... hanno il dinamico\n[Daniela, 04/07/2024 16:02]" },
+  { "text": "Una volta le videate nere lavoravano nei software per fare download di cotone\n[Dario, 11/09/2024 12:25]" },
 ]
